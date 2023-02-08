@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:th="http://www.thymeleaf.org">
+<head>
+    <th:block th:replace="fragments/head"></th:block>
+</head>
+<body>
+<div class="container-fluid">
+    <header>
+        <th:block th:replace="fragments/navbar"></th:block>
+    </header>
+    <main class="mt-3">
+        <h1 class="text-dark text-center">My Events</h1>
+        <hr class="hr-2 bg-eventures">
+        <table class="table table-eventures">
+            <thead>
+            <tr class="font-weight-bold">
+                <th class="w-5">#</th>
+                <th class="w-35">Name</th>
+                <th class="w-20">Place</th>
+                <th class="w-15">Start</th>
+                <th class="w-15">End</th>
+                <th class="w-10">Tickets</th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr th:each="event, iter : ${myEvents}" th:object="${event}">
+                <td class="w-5" th:text="${iter.index + 1}"></td>
+                <td class="w-35" th:text="*{name}"></td>
+                <td class="w-20" th:text="*{place}"></td>
+                <td class="w-15" th:text="*{#temporals.format(startTime, 'hh:mm | dd/MM/yyyy')}"></td>
+                <td class="w-15" th:text="*{#temporals.format(endTime, 'hh:mm | dd/MM/yyyy')}"></td>
+                <td class="w-10" th:text="*{tickets}"></td>
+            </tr>
+            </tbody>
+        </table>
+    </main>
+    <footer class="footer mt-1 p-3 bg-eventures">
+        <div class="container-fluid">
+            <div class="text-muted container-fluid text-center">&copy; CopyRight Eventures Inc 2018-2018. All rights
+                reserved.
+            </div>
+        </div>
+    </footer>
+</div>
+</body>
+</html>

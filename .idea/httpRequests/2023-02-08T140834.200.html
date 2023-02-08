@@ -1,0 +1,704 @@
+<!DOCTYPE html>
+<html lang="bg">
+<head>
+    <title>Jira - Jira setup</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+    <link rel="shortcut icon" href="/favicon.ico"/>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="ajs-setup-context-path" content=""/>
+    <meta name="ajs-license-product-key" content="jira-software"/>
+    <meta name="ajs-setup-language-dialog-default-texts"
+          content="{&quot;button&quot;:&quot;Save&quot;,&quot;cancel&quot;:&quot;Cancel&quot;,&quot;connectionWarningContent&quot;:&quot;Click Cancel to close the window. You can try again, or you can continue with the setup and change the language when you complete configuring Jira.&quot;,&quot;connectionWarningTitle&quot;:&quot;We&#39;re unable to change the language&quot;,&quot;langLabel&quot;:&quot;Select Language&quot;,&quot;langDesc&quot;:&quot;This is the language your Jira instance will use.&quot;,&quot;header&quot;:&quot;Change language&quot;}"/>
+    <link rel="stylesheet"
+          href="/s/d41d8cd98f00b204e9800998ecf8427e-CDN/-ywoqmo/900001/v674ca/9.3.11/_/download/batch/com.atlassian.auiplugin:split_aui.splitchunk.4b52f9e2be/com.atlassian.auiplugin:split_aui.splitchunk.4b52f9e2be.css"
+          data-wrm-key="com.atlassian.auiplugin:split_aui.splitchunk.4b52f9e2be" data-wrm-batch-type="resource"
+          media="all">
+    <link rel="stylesheet"
+          href="/s/d41d8cd98f00b204e9800998ecf8427e-CDN/-ywoqmo/900001/v674ca/9.3.11/_/download/batch/com.atlassian.auiplugin:split_aui.splitchunk.056561461c/com.atlassian.auiplugin:split_aui.splitchunk.056561461c.css"
+          data-wrm-key="com.atlassian.auiplugin:split_aui.splitchunk.056561461c" data-wrm-batch-type="resource"
+          media="all">
+    <link rel="stylesheet"
+          href="/s/d41d8cd98f00b204e9800998ecf8427e-CDN/-ywoqmo/900001/v674ca/9.3.11/_/download/batch/com.atlassian.auiplugin:split_aui.splitchunk.949297951c/com.atlassian.auiplugin:split_aui.splitchunk.949297951c.css"
+          data-wrm-key="com.atlassian.auiplugin:split_aui.splitchunk.949297951c" data-wrm-batch-type="resource"
+          media="all">
+    <link rel="stylesheet"
+          href="/s/d41d8cd98f00b204e9800998ecf8427e-CDN/-ywoqmo/900001/v674ca/9.3.11/_/download/batch/com.atlassian.auiplugin:split_aui.splitchunk.d7c46c2734/com.atlassian.auiplugin:split_aui.splitchunk.d7c46c2734.css"
+          data-wrm-key="com.atlassian.auiplugin:split_aui.splitchunk.d7c46c2734" data-wrm-batch-type="resource"
+          media="all">
+    <link rel="stylesheet"
+          href="/s/d41d8cd98f00b204e9800998ecf8427e-CDN/-ywoqmo/900001/v674ca/9.3.11/_/download/batch/com.atlassian.auiplugin:split_aui.splitchunk.fb15cffa72/com.atlassian.auiplugin:split_aui.splitchunk.fb15cffa72.css"
+          data-wrm-key="com.atlassian.auiplugin:split_aui.splitchunk.fb15cffa72" data-wrm-batch-type="resource"
+          media="all">
+    <link rel="stylesheet"
+          href="/s/d41d8cd98f00b204e9800998ecf8427e-CDN/-ywoqmo/900001/v674ca/9.3.11/_/download/batch/com.atlassian.auiplugin:split_aui.splitchunk.56dfb54d0c/com.atlassian.auiplugin:split_aui.splitchunk.56dfb54d0c.css"
+          data-wrm-key="com.atlassian.auiplugin:split_aui.splitchunk.56dfb54d0c" data-wrm-batch-type="resource"
+          media="all">
+    <link rel="stylesheet"
+          href="/s/d41d8cd98f00b204e9800998ecf8427e-CDN/-ywoqmo/900001/v674ca/9.3.11/_/download/batch/com.atlassian.auiplugin:split_aui.splitchunk.908fe798b4/com.atlassian.auiplugin:split_aui.splitchunk.908fe798b4.css"
+          data-wrm-key="com.atlassian.auiplugin:split_aui.splitchunk.908fe798b4" data-wrm-batch-type="resource"
+          media="all">
+    <link rel="stylesheet"
+          href="/s/d41d8cd98f00b204e9800998ecf8427e-CDN/-ywoqmo/900001/v674ca/9.3.11/_/download/batch/com.atlassian.auiplugin:split_aui.splitchunk.462ee5f9ef/com.atlassian.auiplugin:split_aui.splitchunk.462ee5f9ef.css"
+          data-wrm-key="com.atlassian.auiplugin:split_aui.splitchunk.462ee5f9ef" data-wrm-batch-type="resource"
+          media="all">
+    <link rel="stylesheet"
+          href="/s/d41d8cd98f00b204e9800998ecf8427e-CDN/-ywoqmo/900001/v674ca/9.3.11/_/download/batch/com.atlassian.auiplugin:split_aui.splitchunk.50dca3e042/com.atlassian.auiplugin:split_aui.splitchunk.50dca3e042.css"
+          data-wrm-key="com.atlassian.auiplugin:split_aui.splitchunk.50dca3e042" data-wrm-batch-type="resource"
+          media="all">
+    <link rel="stylesheet"
+          href="/s/d41d8cd98f00b204e9800998ecf8427e-CDN/-ywoqmo/900001/v674ca/9.3.11/_/download/batch/com.atlassian.auiplugin:split_aui.splitchunk.862f26d10a/com.atlassian.auiplugin:split_aui.splitchunk.862f26d10a.css"
+          data-wrm-key="com.atlassian.auiplugin:split_aui.splitchunk.862f26d10a" data-wrm-batch-type="resource"
+          media="all">
+    <link rel="stylesheet"
+          href="/s/d41d8cd98f00b204e9800998ecf8427e-CDN/-ywoqmo/900001/v674ca/9.3.11/_/download/batch/com.atlassian.auiplugin:split_aui.splitchunk.b2ecdd4179/com.atlassian.auiplugin:split_aui.splitchunk.b2ecdd4179.css"
+          data-wrm-key="com.atlassian.auiplugin:split_aui.splitchunk.b2ecdd4179" data-wrm-batch-type="resource"
+          media="all">
+    <link rel="stylesheet"
+          href="/s/d41d8cd98f00b204e9800998ecf8427e-CDN/-ywoqmo/900001/v674ca/9.3.11/_/download/batch/com.atlassian.auiplugin:split_aui.splitchunk.7da3927366/com.atlassian.auiplugin:split_aui.splitchunk.7da3927366.css"
+          data-wrm-key="com.atlassian.auiplugin:split_aui.splitchunk.7da3927366" data-wrm-batch-type="resource"
+          media="all">
+    <link rel="stylesheet"
+          href="/s/d41d8cd98f00b204e9800998ecf8427e-CDN/-ywoqmo/900001/v674ca/9.3.11/_/download/batch/com.atlassian.auiplugin:split_aui.splitchunk.141abf7fb1/com.atlassian.auiplugin:split_aui.splitchunk.141abf7fb1.css"
+          data-wrm-key="com.atlassian.auiplugin:split_aui.splitchunk.141abf7fb1" data-wrm-batch-type="resource"
+          media="all">
+    <link rel="stylesheet"
+          href="/s/d41d8cd98f00b204e9800998ecf8427e-CDN/-ywoqmo/900001/v674ca/9.3.11/_/download/batch/com.atlassian.auiplugin:split_aui.splitchunk.4a667cc1ee/com.atlassian.auiplugin:split_aui.splitchunk.4a667cc1ee.css"
+          data-wrm-key="com.atlassian.auiplugin:split_aui.splitchunk.4a667cc1ee" data-wrm-batch-type="resource"
+          media="all">
+    <link rel="stylesheet"
+          href="/s/d41d8cd98f00b204e9800998ecf8427e-CDN/-ywoqmo/900001/v674ca/9.3.11/_/download/batch/com.atlassian.auiplugin:split_aui.splitchunk.3db8886820/com.atlassian.auiplugin:split_aui.splitchunk.3db8886820.css"
+          data-wrm-key="com.atlassian.auiplugin:split_aui.splitchunk.3db8886820" data-wrm-batch-type="resource"
+          media="all">
+    <link rel="stylesheet"
+          href="/s/d41d8cd98f00b204e9800998ecf8427e-CDN/-ywoqmo/900001/v674ca/9.3.11/_/download/batch/com.atlassian.auiplugin:split_aui.splitchunk.5b8c290363/com.atlassian.auiplugin:split_aui.splitchunk.5b8c290363.css"
+          data-wrm-key="com.atlassian.auiplugin:split_aui.splitchunk.5b8c290363" data-wrm-batch-type="resource"
+          media="all">
+    <link rel="stylesheet"
+          href="/s/d41d8cd98f00b204e9800998ecf8427e-CDN/-ywoqmo/900001/v674ca/9.3.11/_/download/batch/com.atlassian.auiplugin:split_aui.splitchunk.b652d2668a/com.atlassian.auiplugin:split_aui.splitchunk.b652d2668a.css"
+          data-wrm-key="com.atlassian.auiplugin:split_aui.splitchunk.b652d2668a" data-wrm-batch-type="resource"
+          media="all">
+    <link rel="stylesheet"
+          href="/s/d41d8cd98f00b204e9800998ecf8427e-CDN/-ywoqmo/900001/v674ca/9.3.11/_/download/batch/com.atlassian.auiplugin:split_aui.splitchunk.b548966f06/com.atlassian.auiplugin:split_aui.splitchunk.b548966f06.css"
+          data-wrm-key="com.atlassian.auiplugin:split_aui.splitchunk.b548966f06" data-wrm-batch-type="resource"
+          media="all">
+    <link rel="stylesheet"
+          href="/s/d41d8cd98f00b204e9800998ecf8427e-CDN/-ywoqmo/900001/v674ca/9.3.11/_/download/batch/com.atlassian.auiplugin:split_aui.splitchunk.f5244b0828/com.atlassian.auiplugin:split_aui.splitchunk.f5244b0828.css"
+          data-wrm-key="com.atlassian.auiplugin:split_aui.splitchunk.f5244b0828" data-wrm-batch-type="resource"
+          media="all">
+    <link rel="stylesheet"
+          href="/s/d41d8cd98f00b204e9800998ecf8427e-CDN/-ywoqmo/900001/v674ca/9.3.11/_/download/batch/com.atlassian.auiplugin:split_aui.component.async-header/com.atlassian.auiplugin:split_aui.component.async-header.css"
+          data-wrm-key="com.atlassian.auiplugin:split_aui.component.async-header" data-wrm-batch-type="resource"
+          media="all">
+    <link rel="stylesheet"
+          href="/s/d41d8cd98f00b204e9800998ecf8427e-CDN/-ywoqmo/900001/v674ca/9.3.11/_/download/batch/com.atlassian.auiplugin:split_aui.splitchunk.d925afe2c0/com.atlassian.auiplugin:split_aui.splitchunk.d925afe2c0.css"
+          data-wrm-key="com.atlassian.auiplugin:split_aui.splitchunk.d925afe2c0" data-wrm-batch-type="resource"
+          media="all">
+    <link rel="stylesheet"
+          href="/s/d41d8cd98f00b204e9800998ecf8427e-CDN/-ywoqmo/900001/v674ca/9.3.11/_/download/batch/com.atlassian.auiplugin:split_aui.deprecated.component.dropdown1/com.atlassian.auiplugin:split_aui.deprecated.component.dropdown1.css"
+          data-wrm-key="com.atlassian.auiplugin:split_aui.deprecated.component.dropdown1" data-wrm-batch-type="resource"
+          media="all">
+    <link rel="stylesheet"
+          href="/s/d41d8cd98f00b204e9800998ecf8427e-CDN/-ywoqmo/900001/v674ca/9.3.11/_/download/batch/com.atlassian.auiplugin:split_aui.deprecated.component.dialog1/com.atlassian.auiplugin:split_aui.deprecated.component.dialog1.css"
+          data-wrm-key="com.atlassian.auiplugin:split_aui.deprecated.component.dialog1" data-wrm-batch-type="resource"
+          media="all">
+    <link rel="stylesheet"
+          href="/s/d41d8cd98f00b204e9800998ecf8427e-CDN/-ywoqmo/900001/v674ca/9.3.11/_/download/batch/com.atlassian.auiplugin:split_aui.component.tabs/com.atlassian.auiplugin:split_aui.component.tabs.css"
+          data-wrm-key="com.atlassian.auiplugin:split_aui.component.tabs" data-wrm-batch-type="resource" media="all">
+    <link rel="stylesheet"
+          href="/s/d41d8cd98f00b204e9800998ecf8427e-CDN/-ywoqmo/900001/v674ca/9.3.11/_/download/batch/com.atlassian.auiplugin:split_aui.splitchunk.a2b2c71491/com.atlassian.auiplugin:split_aui.splitchunk.a2b2c71491.css"
+          data-wrm-key="com.atlassian.auiplugin:split_aui.splitchunk.a2b2c71491" data-wrm-batch-type="resource"
+          media="all">
+    <link rel="stylesheet"
+          href="/s/d41d8cd98f00b204e9800998ecf8427e-CDN/-ywoqmo/900001/v674ca/9.3.11/_/download/batch/com.atlassian.auiplugin:split_aui.splitchunk.57d1ac075f/com.atlassian.auiplugin:split_aui.splitchunk.57d1ac075f.css"
+          data-wrm-key="com.atlassian.auiplugin:split_aui.splitchunk.57d1ac075f" data-wrm-batch-type="resource"
+          media="all">
+    <link rel="stylesheet"
+          href="/s/d41d8cd98f00b204e9800998ecf8427e-CDN/-ywoqmo/900001/v674ca/9.3.11/_/download/batch/com.atlassian.auiplugin:split_aui.pattern.lozenge/com.atlassian.auiplugin:split_aui.pattern.lozenge.css"
+          data-wrm-key="com.atlassian.auiplugin:split_aui.pattern.lozenge" data-wrm-batch-type="resource" media="all">
+    <link rel="stylesheet"
+          href="/s/d41d8cd98f00b204e9800998ecf8427e-CDN/-ywoqmo/900001/v674ca/9.3.11/_/download/batch/com.atlassian.auiplugin:split_aui.pattern.label/com.atlassian.auiplugin:split_aui.pattern.label.css"
+          data-wrm-key="com.atlassian.auiplugin:split_aui.pattern.label" data-wrm-batch-type="resource" media="all">
+    <link rel="stylesheet"
+          href="/s/d41d8cd98f00b204e9800998ecf8427e-CDN/-ywoqmo/900001/v674ca/9.3.11/_/download/batch/com.atlassian.auiplugin:split_aui.splitchunk.16f099a0da/com.atlassian.auiplugin:split_aui.splitchunk.16f099a0da.css"
+          data-wrm-key="com.atlassian.auiplugin:split_aui.splitchunk.16f099a0da" data-wrm-batch-type="resource"
+          media="all">
+    <link rel="stylesheet"
+          href="/s/6e8dac824fa8b9397a7e7298179febfa-CDN/-ywoqmo/900001/v674ca/1.0/_/download/batch/jira.webresources:icons/jira.webresources:icons.css"
+          data-wrm-key="jira.webresources:icons" data-wrm-batch-type="resource" media="all">
+    <link rel="stylesheet"
+          href="/s/d41d8cd98f00b204e9800998ecf8427e-CDN/-ywoqmo/900001/v674ca/9.3.11/_/download/batch/com.atlassian.auiplugin:split_aui.splitchunk.23f50a6f00/com.atlassian.auiplugin:split_aui.splitchunk.23f50a6f00.css"
+          data-wrm-key="com.atlassian.auiplugin:split_aui.splitchunk.23f50a6f00" data-wrm-batch-type="resource"
+          media="all">
+    <link rel="stylesheet"
+          href="/s/030d5a4a723660973ecb3a53255343f6-CDN/-ywoqmo/900001/v674ca/2.2.3/_/download/batch/com.atlassian.plugins.issue-status-plugin:issue-status-resources/com.atlassian.plugins.issue-status-plugin:issue-status-resources.css"
+          data-wrm-key="com.atlassian.plugins.issue-status-plugin:issue-status-resources" data-wrm-batch-type="resource"
+          media="all">
+    <link rel="stylesheet"
+          href="/s/6e8dac824fa8b9397a7e7298179febfa-CDN/-ywoqmo/900001/v674ca/1.0/_/download/batch/jira.webresources:a11y-overrides/jira.webresources:a11y-overrides.css"
+          data-wrm-key="jira.webresources:a11y-overrides" data-wrm-batch-type="resource" media="all">
+    <link rel="stylesheet"
+          href="/s/db5de22147917248b9f9b079fa396105-CDN/-ywoqmo/900001/v674ca/1.0/_/download/batch/jira.webresources:global-static/jira.webresources:global-static.css"
+          data-wrm-key="jira.webresources:global-static" data-wrm-batch-type="resource" media="all">
+    <link rel="stylesheet"
+          href="/s/d41d8cd98f00b204e9800998ecf8427e-CDN/-ywoqmo/900001/v674ca/9.3.11/_/download/batch/com.atlassian.auiplugin:split_aui.splitchunk.3d2cb1af14/com.atlassian.auiplugin:split_aui.splitchunk.3d2cb1af14.css"
+          data-wrm-key="com.atlassian.auiplugin:split_aui.splitchunk.3d2cb1af14" data-wrm-batch-type="resource"
+          media="all">
+    <link rel="stylesheet"
+          href="/s/d41d8cd98f00b204e9800998ecf8427e-CDN/-ywoqmo/900001/v674ca/9.3.11/_/download/batch/com.atlassian.auiplugin:split_aui.component.flag/com.atlassian.auiplugin:split_aui.component.flag.css"
+          data-wrm-key="com.atlassian.auiplugin:split_aui.component.flag" data-wrm-batch-type="resource" media="all">
+    <link rel="stylesheet"
+          href="/s/6e8dac824fa8b9397a7e7298179febfa-CDN/-ywoqmo/900001/v674ca/1.0/_/download/batch/jira.webresources:list-styles/jira.webresources:list-styles.css"
+          data-wrm-key="jira.webresources:list-styles" data-wrm-batch-type="resource" media="all">
+    <link rel="stylesheet"
+          href="/s/6e8dac824fa8b9397a7e7298179febfa-CDN/-ywoqmo/900001/v674ca/1.0/_/download/batch/jira.webresources:inline-layer/jira.webresources:inline-layer.css"
+          data-wrm-key="jira.webresources:inline-layer" data-wrm-batch-type="resource" media="all">
+    <link rel="stylesheet"
+          href="/s/6e8dac824fa8b9397a7e7298179febfa-CDN/-ywoqmo/900001/v674ca/1.0/_/download/batch/jira.webresources:frother-queryable-dropdown-select/jira.webresources:frother-queryable-dropdown-select.css"
+          data-wrm-key="jira.webresources:frother-queryable-dropdown-select" data-wrm-batch-type="resource" media="all">
+    <link rel="stylesheet"
+          href="/s/6e8dac824fa8b9397a7e7298179febfa-CDN/-ywoqmo/900001/v674ca/1.0/_/download/batch/jira.webresources:frother-singleselect/jira.webresources:frother-singleselect.css"
+          data-wrm-key="jira.webresources:frother-singleselect" data-wrm-batch-type="resource" media="all">
+    <link rel="stylesheet"
+          href="/s/d41d8cd98f00b204e9800998ecf8427e-CDN/-ywoqmo/900001/v674ca/9.3.11/_/download/batch/com.atlassian.auiplugin:split_aui.pattern.multi-step-progress/com.atlassian.auiplugin:split_aui.pattern.multi-step-progress.css"
+          data-wrm-key="com.atlassian.auiplugin:split_aui.pattern.multi-step-progress" data-wrm-batch-type="resource"
+          media="all">
+    <link rel="stylesheet"
+          href="/s/d41d8cd98f00b204e9800998ecf8427e-CDN/-ywoqmo/900001/v674ca/9.3.11/_/download/batch/com.atlassian.auiplugin:split_aui.component.dialog2/com.atlassian.auiplugin:split_aui.component.dialog2.css"
+          data-wrm-key="com.atlassian.auiplugin:split_aui.component.dialog2" data-wrm-batch-type="resource" media="all">
+    <link rel="stylesheet"
+          href="/s/6e8dac824fa8b9397a7e7298179febfa-CDN/-ywoqmo/900001/v674ca/1.0/_/download/batch/jira.webresources:jira-setup/jira.webresources:jira-setup.css"
+          data-wrm-key="jira.webresources:jira-setup" data-wrm-batch-type="resource" media="all">
+    <script src="/s/d41d8cd98f00b204e9800998ecf8427e-CDN/-ywoqmo/900001/v674ca/1.0/_/download/batch/jira.webresources:almond/jira.webresources:almond.js"
+            data-wrm-key="jira.webresources:almond" data-wrm-batch-type="resource" data-initially-rendered></script>
+    <script src="/s/d41d8cd98f00b204e9800998ecf8427e-CDN/-ywoqmo/900001/v674ca/3.1.5/_/download/batch/com.atlassian.plugins.atlassian-plugins-webresource-rest:web-resource-manager/com.atlassian.plugins.atlassian-plugins-webresource-rest:web-resource-manager.js"
+            data-wrm-key="com.atlassian.plugins.atlassian-plugins-webresource-rest:web-resource-manager"
+            data-wrm-batch-type="resource" data-initially-rendered></script>
+    <script src="/s/d41d8cd98f00b204e9800998ecf8427e-CDN/-ywoqmo/900001/v674ca/1.0/_/download/batch/jira.webresources:almond-analytics/jira.webresources:almond-analytics.js"
+            data-wrm-key="jira.webresources:almond-analytics" data-wrm-batch-type="resource"
+            data-initially-rendered></script>
+    <script src="/s/d41d8cd98f00b204e9800998ecf8427e-CDN/-ywoqmo/900001/v674ca/2.2.4.10/_/download/batch/com.atlassian.plugins.jquery:jquery-lib/com.atlassian.plugins.jquery:jquery-lib.js"
+            data-wrm-key="com.atlassian.plugins.jquery:jquery-lib" data-wrm-batch-type="resource"
+            data-initially-rendered></script>
+    <script src="/s/d41d8cd98f00b204e9800998ecf8427e-CDN/-ywoqmo/900001/v674ca/2.2.4.10/_/download/batch/com.atlassian.plugins.jquery:jquery-browser/com.atlassian.plugins.jquery:jquery-browser.js"
+            data-wrm-key="com.atlassian.plugins.jquery:jquery-browser" data-wrm-batch-type="resource"
+            data-initially-rendered></script>
+    <script src="/s/d41d8cd98f00b204e9800998ecf8427e-CDN/-ywoqmo/900001/v674ca/2.2.4.10/_/download/batch/com.atlassian.plugins.jquery:jquery-migrate/com.atlassian.plugins.jquery:jquery-migrate.js"
+            data-wrm-key="com.atlassian.plugins.jquery:jquery-migrate" data-wrm-batch-type="resource"
+            data-initially-rendered></script>
+    <script src="/s/d41d8cd98f00b204e9800998ecf8427e-CDN/-ywoqmo/900001/v674ca/9.3.11/_/download/batch/com.atlassian.auiplugin:common-runtime/com.atlassian.auiplugin:common-runtime.js"
+            data-wrm-key="com.atlassian.auiplugin:common-runtime" data-wrm-batch-type="resource"
+            data-initially-rendered></script>
+    <script src="/s/d41d8cd98f00b204e9800998ecf8427e-CDN/-ywoqmo/900001/v674ca/9.3.11/_/download/batch/com.atlassian.auiplugin:split_aui.splitchunk.71c59684a5/com.atlassian.auiplugin:split_aui.splitchunk.71c59684a5.js"
+            data-wrm-key="com.atlassian.auiplugin:split_aui.splitchunk.71c59684a5" data-wrm-batch-type="resource"
+            data-initially-rendered></script>
+    <script src="/s/d41d8cd98f00b204e9800998ecf8427e-CDN/-ywoqmo/900001/v674ca/9.3.11/_/download/batch/com.atlassian.auiplugin:split_aui.splitchunk.444efc83be/com.atlassian.auiplugin:split_aui.splitchunk.444efc83be.js"
+            data-wrm-key="com.atlassian.auiplugin:split_aui.splitchunk.444efc83be" data-wrm-batch-type="resource"
+            data-initially-rendered></script>
+    <script src="/s/d41d8cd98f00b204e9800998ecf8427e-CDN/-ywoqmo/900001/v674ca/9.3.11/_/download/batch/com.atlassian.auiplugin:split_aui.splitchunk.739b9ec8cc/com.atlassian.auiplugin:split_aui.splitchunk.739b9ec8cc.js"
+            data-wrm-key="com.atlassian.auiplugin:split_aui.splitchunk.739b9ec8cc" data-wrm-batch-type="resource"
+            data-initially-rendered></script>
+    <script src="/s/d41d8cd98f00b204e9800998ecf8427e-CDN/-ywoqmo/900001/v674ca/9.3.11/_/download/batch/com.atlassian.auiplugin:split_aui.splitchunk.994e478d48/com.atlassian.auiplugin:split_aui.splitchunk.994e478d48.js"
+            data-wrm-key="com.atlassian.auiplugin:split_aui.splitchunk.994e478d48" data-wrm-batch-type="resource"
+            data-initially-rendered></script>
+    <script src="/s/d41d8cd98f00b204e9800998ecf8427e-CDN/-ywoqmo/900001/v674ca/9.3.11/_/download/batch/com.atlassian.auiplugin:split_aui.splitchunk.479fe6ee76/com.atlassian.auiplugin:split_aui.splitchunk.479fe6ee76.js"
+            data-wrm-key="com.atlassian.auiplugin:split_aui.splitchunk.479fe6ee76" data-wrm-batch-type="resource"
+            data-initially-rendered></script>
+    <script src="/s/d41d8cd98f00b204e9800998ecf8427e-CDN/-ywoqmo/900001/v674ca/9.3.11/_/download/batch/com.atlassian.auiplugin:split_aui.splitchunk.2e16019fb9/com.atlassian.auiplugin:split_aui.splitchunk.2e16019fb9.js"
+            data-wrm-key="com.atlassian.auiplugin:split_aui.splitchunk.2e16019fb9" data-wrm-batch-type="resource"
+            data-initially-rendered></script>
+    <script src="/s/d41d8cd98f00b204e9800998ecf8427e-CDN/-ywoqmo/900001/v674ca/9.3.11/_/download/batch/com.atlassian.auiplugin:split_aui.splitchunk.8771ceac91/com.atlassian.auiplugin:split_aui.splitchunk.8771ceac91.js"
+            data-wrm-key="com.atlassian.auiplugin:split_aui.splitchunk.8771ceac91" data-wrm-batch-type="resource"
+            data-initially-rendered></script>
+    <script src="/s/d41d8cd98f00b204e9800998ecf8427e-CDN/-ywoqmo/900001/v674ca/9.3.11/_/download/batch/com.atlassian.auiplugin:split_aui.splitchunk.7873ba9060/com.atlassian.auiplugin:split_aui.splitchunk.7873ba9060.js"
+            data-wrm-key="com.atlassian.auiplugin:split_aui.splitchunk.7873ba9060" data-wrm-batch-type="resource"
+            data-initially-rendered></script>
+    <script src="/s/d41d8cd98f00b204e9800998ecf8427e-CDN/-ywoqmo/900001/v674ca/9.3.11/_/download/batch/com.atlassian.auiplugin:split_aui.splitchunk.0fc208f3fe/com.atlassian.auiplugin:split_aui.splitchunk.0fc208f3fe.js"
+            data-wrm-key="com.atlassian.auiplugin:split_aui.splitchunk.0fc208f3fe" data-wrm-batch-type="resource"
+            data-initially-rendered></script>
+    <script src="/s/d41d8cd98f00b204e9800998ecf8427e-CDN/-ywoqmo/900001/v674ca/9.3.11/_/download/batch/com.atlassian.auiplugin:split_aui.splitchunk.2a34183e72/com.atlassian.auiplugin:split_aui.splitchunk.2a34183e72.js"
+            data-wrm-key="com.atlassian.auiplugin:split_aui.splitchunk.2a34183e72" data-wrm-batch-type="resource"
+            data-initially-rendered></script>
+    <script src="/s/d41d8cd98f00b204e9800998ecf8427e-CDN/-ywoqmo/900001/v674ca/9.3.11/_/download/batch/com.atlassian.auiplugin:split_aui.core/com.atlassian.auiplugin:split_aui.core.js"
+            data-wrm-key="com.atlassian.auiplugin:split_aui.core" data-wrm-batch-type="resource"
+            data-initially-rendered></script>
+    <script src="/s/d41d8cd98f00b204e9800998ecf8427e-CDN/-ywoqmo/900001/v674ca/3.1.5/_/download/batch/com.atlassian.plugins.atlassian-plugins-webresource-plugin:context-path/com.atlassian.plugins.atlassian-plugins-webresource-plugin:context-path.js"
+            data-wrm-key="com.atlassian.plugins.atlassian-plugins-webresource-plugin:context-path"
+            data-wrm-batch-type="resource" data-initially-rendered></script>
+    <script src="/s/d41d8cd98f00b204e9800998ecf8427e-CDN/-ywoqmo/900001/v674ca/0.4.0/_/download/batch/com.atlassian.frontend.atlassian-frontend-runtime-plugin:core-js/com.atlassian.frontend.atlassian-frontend-runtime-plugin:core-js.js"
+            data-wrm-key="com.atlassian.frontend.atlassian-frontend-runtime-plugin:core-js"
+            data-wrm-batch-type="resource" data-initially-rendered></script>
+    <script src="/s/d41d8cd98f00b204e9800998ecf8427e-CDN/-ywoqmo/900001/v674ca/0.4.0/_/download/batch/com.atlassian.frontend.atlassian-frontend-runtime-plugin:fetch/com.atlassian.frontend.atlassian-frontend-runtime-plugin:fetch.js"
+            data-wrm-key="com.atlassian.frontend.atlassian-frontend-runtime-plugin:fetch" data-wrm-batch-type="resource"
+            data-initially-rendered></script>
+    <script src="/s/d41d8cd98f00b204e9800998ecf8427e-CDN/-ywoqmo/900001/v674ca/0.4.0/_/download/batch/com.atlassian.frontend.atlassian-frontend-runtime-plugin:focus-visible/com.atlassian.frontend.atlassian-frontend-runtime-plugin:focus-visible.js"
+            data-wrm-key="com.atlassian.frontend.atlassian-frontend-runtime-plugin:focus-visible"
+            data-wrm-batch-type="resource" data-initially-rendered></script>
+    <script src="/s/d41d8cd98f00b204e9800998ecf8427e-CDN/-ywoqmo/900001/v674ca/1.0/_/download/batch/jira.webresources:_polyfills/jira.webresources:_polyfills.js"
+            data-wrm-key="jira.webresources:_polyfills" data-wrm-batch-type="resource" data-initially-rendered></script>
+    <script src="/s/d41d8cd98f00b204e9800998ecf8427e-CDN/-ywoqmo/900001/v674ca/1.0/_/download/batch/jira.webresources:jquery/jira.webresources:jquery.js"
+            data-wrm-key="jira.webresources:jquery" data-wrm-batch-type="resource" data-initially-rendered></script>
+    <script src="/s/d41d8cd98f00b204e9800998ecf8427e-CDN/-ywoqmo/900001/v674ca/1.0/_/download/batch/jira.webresources:top-same-origin-window/jira.webresources:top-same-origin-window.js"
+            data-wrm-key="jira.webresources:top-same-origin-window" data-wrm-batch-type="resource"
+            data-initially-rendered></script>
+    <script src="/s/d41d8cd98f00b204e9800998ecf8427e-CDN/-ywoqmo/900001/v674ca/1.0/_/download/batch/jira.webresources:jquery-plugin-scrollintoview/jira.webresources:jquery-plugin-scrollintoview.js"
+            data-wrm-key="jira.webresources:jquery-plugin-scrollintoview" data-wrm-batch-type="resource"
+            data-initially-rendered></script>
+    <script src="/s/d41d8cd98f00b204e9800998ecf8427e-CDN/-ywoqmo/900001/v674ca/9.3.11/_/download/batch/com.atlassian.auiplugin:split_aui.splitchunk.vendors--894c8113d9/com.atlassian.auiplugin:split_aui.splitchunk.vendors--894c8113d9.js"
+            data-wrm-key="com.atlassian.auiplugin:split_aui.splitchunk.vendors--894c8113d9"
+            data-wrm-batch-type="resource" data-initially-rendered></script>
+    <script src="/s/d41d8cd98f00b204e9800998ecf8427e-CDN/-ywoqmo/900001/v674ca/9.3.11/_/download/batch/com.atlassian.auiplugin:split_aui.splitchunk.4b52f9e2be/com.atlassian.auiplugin:split_aui.splitchunk.4b52f9e2be.js"
+            data-wrm-key="com.atlassian.auiplugin:split_aui.splitchunk.4b52f9e2be" data-wrm-batch-type="resource"
+            data-initially-rendered></script>
+    <script src="/s/d41d8cd98f00b204e9800998ecf8427e-CDN/-ywoqmo/900001/v674ca/9.3.11/_/download/batch/com.atlassian.auiplugin:split_aui.splitchunk.056561461c/com.atlassian.auiplugin:split_aui.splitchunk.056561461c.js"
+            data-wrm-key="com.atlassian.auiplugin:split_aui.splitchunk.056561461c" data-wrm-batch-type="resource"
+            data-initially-rendered></script>
+    <script src="/s/d41d8cd98f00b204e9800998ecf8427e-CDN/-ywoqmo/900001/v674ca/9.3.11/_/download/batch/com.atlassian.auiplugin:split_aui.splitchunk.949297951c/com.atlassian.auiplugin:split_aui.splitchunk.949297951c.js"
+            data-wrm-key="com.atlassian.auiplugin:split_aui.splitchunk.949297951c" data-wrm-batch-type="resource"
+            data-initially-rendered></script>
+    <script src="/s/d41d8cd98f00b204e9800998ecf8427e-CDN/-ywoqmo/900001/v674ca/9.3.11/_/download/batch/com.atlassian.auiplugin:split_aui.splitchunk.dd803a46b4/com.atlassian.auiplugin:split_aui.splitchunk.dd803a46b4.js"
+            data-wrm-key="com.atlassian.auiplugin:split_aui.splitchunk.dd803a46b4" data-wrm-batch-type="resource"
+            data-initially-rendered></script>
+    <script src="/s/d41d8cd98f00b204e9800998ecf8427e-CDN/-ywoqmo/900001/v674ca/9.3.11/_/download/batch/com.atlassian.auiplugin:split_aui.splitchunk.d7c46c2734/com.atlassian.auiplugin:split_aui.splitchunk.d7c46c2734.js"
+            data-wrm-key="com.atlassian.auiplugin:split_aui.splitchunk.d7c46c2734" data-wrm-batch-type="resource"
+            data-initially-rendered></script>
+    <script src="/s/d41d8cd98f00b204e9800998ecf8427e-CDN/-ywoqmo/900001/v674ca/9.3.11/_/download/batch/com.atlassian.auiplugin:split_aui.splitchunk.e54c7c7304/com.atlassian.auiplugin:split_aui.splitchunk.e54c7c7304.js"
+            data-wrm-key="com.atlassian.auiplugin:split_aui.splitchunk.e54c7c7304" data-wrm-batch-type="resource"
+            data-initially-rendered></script>
+    <script src="/s/d41d8cd98f00b204e9800998ecf8427e-CDN/-ywoqmo/900001/v674ca/9.3.11/_/download/batch/com.atlassian.auiplugin:split_aui.splitchunk.fb15cffa72/com.atlassian.auiplugin:split_aui.splitchunk.fb15cffa72.js"
+            data-wrm-key="com.atlassian.auiplugin:split_aui.splitchunk.fb15cffa72" data-wrm-batch-type="resource"
+            data-initially-rendered></script>
+    <script src="/s/d41d8cd98f00b204e9800998ecf8427e-CDN/-ywoqmo/900001/v674ca/9.3.11/_/download/batch/com.atlassian.auiplugin:split_aui.splitchunk.56dfb54d0c/com.atlassian.auiplugin:split_aui.splitchunk.56dfb54d0c.js"
+            data-wrm-key="com.atlassian.auiplugin:split_aui.splitchunk.56dfb54d0c" data-wrm-batch-type="resource"
+            data-initially-rendered></script>
+    <script src="/s/d41d8cd98f00b204e9800998ecf8427e-CDN/-ywoqmo/900001/v674ca/9.3.11/_/download/batch/com.atlassian.auiplugin:split_aui.splitchunk.f1e06f97a4/com.atlassian.auiplugin:split_aui.splitchunk.f1e06f97a4.js"
+            data-wrm-key="com.atlassian.auiplugin:split_aui.splitchunk.f1e06f97a4" data-wrm-batch-type="resource"
+            data-initially-rendered></script>
+    <script src="/s/d41d8cd98f00b204e9800998ecf8427e-CDN/-ywoqmo/900001/v674ca/9.3.11/_/download/batch/com.atlassian.auiplugin:split_aui.splitchunk.f673ef53ac/com.atlassian.auiplugin:split_aui.splitchunk.f673ef53ac.js"
+            data-wrm-key="com.atlassian.auiplugin:split_aui.splitchunk.f673ef53ac" data-wrm-batch-type="resource"
+            data-initially-rendered></script>
+    <script src="/s/d41d8cd98f00b204e9800998ecf8427e-CDN/-ywoqmo/900001/v674ca/9.3.11/_/download/batch/com.atlassian.auiplugin:split_aui.splitchunk.8659b532c1/com.atlassian.auiplugin:split_aui.splitchunk.8659b532c1.js"
+            data-wrm-key="com.atlassian.auiplugin:split_aui.splitchunk.8659b532c1" data-wrm-batch-type="resource"
+            data-initially-rendered></script>
+    <script src="/s/d41d8cd98f00b204e9800998ecf8427e-CDN/-ywoqmo/900001/v674ca/9.3.11/_/download/batch/com.atlassian.auiplugin:split_aui.splitchunk.908fe798b4/com.atlassian.auiplugin:split_aui.splitchunk.908fe798b4.js"
+            data-wrm-key="com.atlassian.auiplugin:split_aui.splitchunk.908fe798b4" data-wrm-batch-type="resource"
+            data-initially-rendered></script>
+    <script src="/s/d41d8cd98f00b204e9800998ecf8427e-CDN/-ywoqmo/900001/v674ca/9.3.11/_/download/batch/com.atlassian.auiplugin:split_aui.splitchunk.462ee5f9ef/com.atlassian.auiplugin:split_aui.splitchunk.462ee5f9ef.js"
+            data-wrm-key="com.atlassian.auiplugin:split_aui.splitchunk.462ee5f9ef" data-wrm-batch-type="resource"
+            data-initially-rendered></script>
+    <script src="/s/d41d8cd98f00b204e9800998ecf8427e-CDN/-ywoqmo/900001/v674ca/9.3.11/_/download/batch/com.atlassian.auiplugin:split_aui.splitchunk.d0110a864f/com.atlassian.auiplugin:split_aui.splitchunk.d0110a864f.js"
+            data-wrm-key="com.atlassian.auiplugin:split_aui.splitchunk.d0110a864f" data-wrm-batch-type="resource"
+            data-initially-rendered></script>
+    <script src="/s/d41d8cd98f00b204e9800998ecf8427e-CDN/-ywoqmo/900001/v674ca/9.3.11/_/download/batch/com.atlassian.auiplugin:split_aui.splitchunk.afa5039e04/com.atlassian.auiplugin:split_aui.splitchunk.afa5039e04.js"
+            data-wrm-key="com.atlassian.auiplugin:split_aui.splitchunk.afa5039e04" data-wrm-batch-type="resource"
+            data-initially-rendered></script>
+    <script src="/s/d41d8cd98f00b204e9800998ecf8427e-CDN/-ywoqmo/900001/v674ca/9.3.11/_/download/batch/com.atlassian.auiplugin:split_aui.splitchunk.bff3715233/com.atlassian.auiplugin:split_aui.splitchunk.bff3715233.js"
+            data-wrm-key="com.atlassian.auiplugin:split_aui.splitchunk.bff3715233" data-wrm-batch-type="resource"
+            data-initially-rendered></script>
+    <script src="/s/d41d8cd98f00b204e9800998ecf8427e-CDN/-ywoqmo/900001/v674ca/9.3.11/_/download/batch/com.atlassian.auiplugin:split_aui.splitchunk.26116b3cbd/com.atlassian.auiplugin:split_aui.splitchunk.26116b3cbd.js"
+            data-wrm-key="com.atlassian.auiplugin:split_aui.splitchunk.26116b3cbd" data-wrm-batch-type="resource"
+            data-initially-rendered></script>
+    <script src="/s/d41d8cd98f00b204e9800998ecf8427e-CDN/-ywoqmo/900001/v674ca/9.3.11/_/download/batch/com.atlassian.auiplugin:split_aui.splitchunk.c750721820/com.atlassian.auiplugin:split_aui.splitchunk.c750721820.js"
+            data-wrm-key="com.atlassian.auiplugin:split_aui.splitchunk.c750721820" data-wrm-batch-type="resource"
+            data-initially-rendered></script>
+    <script src="/s/d41d8cd98f00b204e9800998ecf8427e-CDN/-ywoqmo/900001/v674ca/9.3.11/_/download/batch/com.atlassian.auiplugin:split_aui.splitchunk.6d6f245ed3/com.atlassian.auiplugin:split_aui.splitchunk.6d6f245ed3.js"
+            data-wrm-key="com.atlassian.auiplugin:split_aui.splitchunk.6d6f245ed3" data-wrm-batch-type="resource"
+            data-initially-rendered></script>
+    <script src="/s/d41d8cd98f00b204e9800998ecf8427e-CDN/-ywoqmo/900001/v674ca/9.3.11/_/download/batch/com.atlassian.auiplugin:split_aui.splitchunk.50dca3e042/com.atlassian.auiplugin:split_aui.splitchunk.50dca3e042.js"
+            data-wrm-key="com.atlassian.auiplugin:split_aui.splitchunk.50dca3e042" data-wrm-batch-type="resource"
+            data-initially-rendered></script>
+    <script src="/s/d41d8cd98f00b204e9800998ecf8427e-CDN/-ywoqmo/900001/v674ca/9.3.11/_/download/batch/com.atlassian.auiplugin:split_aui.splitchunk.862f26d10a/com.atlassian.auiplugin:split_aui.splitchunk.862f26d10a.js"
+            data-wrm-key="com.atlassian.auiplugin:split_aui.splitchunk.862f26d10a" data-wrm-batch-type="resource"
+            data-initially-rendered></script>
+    <script src="/s/d41d8cd98f00b204e9800998ecf8427e-CDN/-ywoqmo/900001/v674ca/9.3.11/_/download/batch/com.atlassian.auiplugin:split_aui.splitchunk.b2ecdd4179/com.atlassian.auiplugin:split_aui.splitchunk.b2ecdd4179.js"
+            data-wrm-key="com.atlassian.auiplugin:split_aui.splitchunk.b2ecdd4179" data-wrm-batch-type="resource"
+            data-initially-rendered></script>
+    <script src="/s/d41d8cd98f00b204e9800998ecf8427e-CDN/-ywoqmo/900001/v674ca/9.3.11/_/download/batch/com.atlassian.auiplugin:split_aui.splitchunk.7da3927366/com.atlassian.auiplugin:split_aui.splitchunk.7da3927366.js"
+            data-wrm-key="com.atlassian.auiplugin:split_aui.splitchunk.7da3927366" data-wrm-batch-type="resource"
+            data-initially-rendered></script>
+    <script src="/s/d41d8cd98f00b204e9800998ecf8427e-CDN/-ywoqmo/900001/v674ca/9.3.11/_/download/batch/com.atlassian.auiplugin:split_aui.splitchunk.141abf7fb1/com.atlassian.auiplugin:split_aui.splitchunk.141abf7fb1.js"
+            data-wrm-key="com.atlassian.auiplugin:split_aui.splitchunk.141abf7fb1" data-wrm-batch-type="resource"
+            data-initially-rendered></script>
+    <script src="/s/d41d8cd98f00b204e9800998ecf8427e-CDN/-ywoqmo/900001/v674ca/9.3.11/_/download/batch/com.atlassian.auiplugin:split_aui.splitchunk.4a667cc1ee/com.atlassian.auiplugin:split_aui.splitchunk.4a667cc1ee.js"
+            data-wrm-key="com.atlassian.auiplugin:split_aui.splitchunk.4a667cc1ee" data-wrm-batch-type="resource"
+            data-initially-rendered></script>
+    <script src="/s/d41d8cd98f00b204e9800998ecf8427e-CDN/-ywoqmo/900001/v674ca/9.3.11/_/download/batch/com.atlassian.auiplugin:split_aui.splitchunk.3db8886820/com.atlassian.auiplugin:split_aui.splitchunk.3db8886820.js"
+            data-wrm-key="com.atlassian.auiplugin:split_aui.splitchunk.3db8886820" data-wrm-batch-type="resource"
+            data-initially-rendered></script>
+    <script src="/s/d41d8cd98f00b204e9800998ecf8427e-CDN/-ywoqmo/900001/v674ca/9.3.11/_/download/batch/com.atlassian.auiplugin:split_aui.splitchunk.7253827cf8/com.atlassian.auiplugin:split_aui.splitchunk.7253827cf8.js"
+            data-wrm-key="com.atlassian.auiplugin:split_aui.splitchunk.7253827cf8" data-wrm-batch-type="resource"
+            data-initially-rendered></script>
+    <script src="/s/d41d8cd98f00b204e9800998ecf8427e-CDN/-ywoqmo/900001/v674ca/9.3.11/_/download/batch/com.atlassian.auiplugin:split_aui.side-effects/com.atlassian.auiplugin:split_aui.side-effects.js"
+            data-wrm-key="com.atlassian.auiplugin:split_aui.side-effects" data-wrm-batch-type="resource"
+            data-initially-rendered></script>
+    <script src="/s/d41d8cd98f00b204e9800998ecf8427e-CDN/-ywoqmo/900001/v674ca/1.0/_/download/batch/jira.webresources:jira-layer-interactions/jira.webresources:jira-layer-interactions.js"
+            data-wrm-key="jira.webresources:jira-layer-interactions" data-wrm-batch-type="resource"
+            data-initially-rendered></script>
+    <script src="/s/d41d8cd98f00b204e9800998ecf8427e-CDN/-ywoqmo/900001/v674ca/9.3.11/_/download/batch/com.atlassian.auiplugin:split_aui.splitchunk.vendors--95c789edf5/com.atlassian.auiplugin:split_aui.splitchunk.vendors--95c789edf5.js"
+            data-wrm-key="com.atlassian.auiplugin:split_aui.splitchunk.vendors--95c789edf5"
+            data-wrm-batch-type="resource" data-initially-rendered></script>
+    <script src="/s/d41d8cd98f00b204e9800998ecf8427e-CDN/-ywoqmo/900001/v674ca/9.3.11/_/download/batch/com.atlassian.auiplugin:split_aui.splitchunk.vendors--9c48cc20a9/com.atlassian.auiplugin:split_aui.splitchunk.vendors--9c48cc20a9.js"
+            data-wrm-key="com.atlassian.auiplugin:split_aui.splitchunk.vendors--9c48cc20a9"
+            data-wrm-batch-type="resource" data-initially-rendered></script>
+    <script src="/s/d41d8cd98f00b204e9800998ecf8427e-CDN/-ywoqmo/900001/v674ca/9.3.11/_/download/batch/com.atlassian.auiplugin:split_aui.splitchunk.vendors--105edd7c71/com.atlassian.auiplugin:split_aui.splitchunk.vendors--105edd7c71.js"
+            data-wrm-key="com.atlassian.auiplugin:split_aui.splitchunk.vendors--105edd7c71"
+            data-wrm-batch-type="resource" data-initially-rendered></script>
+    <script src="/s/d41d8cd98f00b204e9800998ecf8427e-CDN/-ywoqmo/900001/v674ca/9.3.11/_/download/batch/com.atlassian.auiplugin:split_aui.splitchunk.vendors--d2297af84a/com.atlassian.auiplugin:split_aui.splitchunk.vendors--d2297af84a.js"
+            data-wrm-key="com.atlassian.auiplugin:split_aui.splitchunk.vendors--d2297af84a"
+            data-wrm-batch-type="resource" data-initially-rendered></script>
+    <script src="/s/d41d8cd98f00b204e9800998ecf8427e-CDN/-ywoqmo/900001/v674ca/9.3.11/_/download/batch/com.atlassian.auiplugin:split_aui.splitchunk.9c48cc20a9/com.atlassian.auiplugin:split_aui.splitchunk.9c48cc20a9.js"
+            data-wrm-key="com.atlassian.auiplugin:split_aui.splitchunk.9c48cc20a9" data-wrm-batch-type="resource"
+            data-initially-rendered></script>
+    <script src="/s/d41d8cd98f00b204e9800998ecf8427e-CDN/-ywoqmo/900001/v674ca/9.3.11/_/download/batch/com.atlassian.auiplugin:split_aui.splitchunk.5f851f97df/com.atlassian.auiplugin:split_aui.splitchunk.5f851f97df.js"
+            data-wrm-key="com.atlassian.auiplugin:split_aui.splitchunk.5f851f97df" data-wrm-batch-type="resource"
+            data-initially-rendered></script>
+    <script src="/s/d41d8cd98f00b204e9800998ecf8427e-CDN/-ywoqmo/900001/v674ca/9.3.11/_/download/batch/com.atlassian.auiplugin:split_aui.splitchunk.ed86a19e01/com.atlassian.auiplugin:split_aui.splitchunk.ed86a19e01.js"
+            data-wrm-key="com.atlassian.auiplugin:split_aui.splitchunk.ed86a19e01" data-wrm-batch-type="resource"
+            data-initially-rendered></script>
+    <script src="/s/d41d8cd98f00b204e9800998ecf8427e-CDN/-ywoqmo/900001/v674ca/9.3.11/_/download/batch/com.atlassian.auiplugin:split_aui.splitchunk.084821f40b/com.atlassian.auiplugin:split_aui.splitchunk.084821f40b.js"
+            data-wrm-key="com.atlassian.auiplugin:split_aui.splitchunk.084821f40b" data-wrm-batch-type="resource"
+            data-initially-rendered></script>
+    <script src="/s/d41d8cd98f00b204e9800998ecf8427e-CDN/-ywoqmo/900001/v674ca/9.3.11/_/download/batch/com.atlassian.auiplugin:split_aui.splitchunk.5b8c290363/com.atlassian.auiplugin:split_aui.splitchunk.5b8c290363.js"
+            data-wrm-key="com.atlassian.auiplugin:split_aui.splitchunk.5b8c290363" data-wrm-batch-type="resource"
+            data-initially-rendered></script>
+    <script src="/s/d41d8cd98f00b204e9800998ecf8427e-CDN/-ywoqmo/900001/v674ca/9.3.11/_/download/batch/com.atlassian.auiplugin:split_aui.splitchunk.baa83dbaf9/com.atlassian.auiplugin:split_aui.splitchunk.baa83dbaf9.js"
+            data-wrm-key="com.atlassian.auiplugin:split_aui.splitchunk.baa83dbaf9" data-wrm-batch-type="resource"
+            data-initially-rendered></script>
+    <script src="/s/d41d8cd98f00b204e9800998ecf8427e-CDN/-ywoqmo/900001/v674ca/9.3.11/_/download/batch/com.atlassian.auiplugin:split_aui.splitchunk.e5af17b48e/com.atlassian.auiplugin:split_aui.splitchunk.e5af17b48e.js"
+            data-wrm-key="com.atlassian.auiplugin:split_aui.splitchunk.e5af17b48e" data-wrm-batch-type="resource"
+            data-initially-rendered></script>
+    <script src="/s/d41d8cd98f00b204e9800998ecf8427e-CDN/-ywoqmo/900001/v674ca/9.3.11/_/download/batch/com.atlassian.auiplugin:split_aui.splitchunk.f154095da3/com.atlassian.auiplugin:split_aui.splitchunk.f154095da3.js"
+            data-wrm-key="com.atlassian.auiplugin:split_aui.splitchunk.f154095da3" data-wrm-batch-type="resource"
+            data-initially-rendered></script>
+    <script src="/s/d41d8cd98f00b204e9800998ecf8427e-CDN/-ywoqmo/900001/v674ca/9.3.11/_/download/batch/com.atlassian.auiplugin:split_aui.splitchunk.36cd9d521c/com.atlassian.auiplugin:split_aui.splitchunk.36cd9d521c.js"
+            data-wrm-key="com.atlassian.auiplugin:split_aui.splitchunk.36cd9d521c" data-wrm-batch-type="resource"
+            data-initially-rendered></script>
+    <script src="/s/d41d8cd98f00b204e9800998ecf8427e-CDN/-ywoqmo/900001/v674ca/9.3.11/_/download/batch/com.atlassian.auiplugin:split_aui.splitchunk.b652d2668a/com.atlassian.auiplugin:split_aui.splitchunk.b652d2668a.js"
+            data-wrm-key="com.atlassian.auiplugin:split_aui.splitchunk.b652d2668a" data-wrm-batch-type="resource"
+            data-initially-rendered></script>
+    <script src="/s/d41d8cd98f00b204e9800998ecf8427e-CDN/-ywoqmo/900001/v674ca/9.3.11/_/download/batch/com.atlassian.auiplugin:split_aui.splitchunk.4248e12b20/com.atlassian.auiplugin:split_aui.splitchunk.4248e12b20.js"
+            data-wrm-key="com.atlassian.auiplugin:split_aui.splitchunk.4248e12b20" data-wrm-batch-type="resource"
+            data-initially-rendered></script>
+    <script src="/s/d41d8cd98f00b204e9800998ecf8427e-CDN/-ywoqmo/900001/v674ca/9.3.11/_/download/batch/com.atlassian.auiplugin:split_aui.splitchunk.b548966f06/com.atlassian.auiplugin:split_aui.splitchunk.b548966f06.js"
+            data-wrm-key="com.atlassian.auiplugin:split_aui.splitchunk.b548966f06" data-wrm-batch-type="resource"
+            data-initially-rendered></script>
+    <script src="/s/d41d8cd98f00b204e9800998ecf8427e-CDN/-ywoqmo/900001/v674ca/9.3.11/_/download/batch/com.atlassian.auiplugin:split_aui.splitchunk.f5244b0828/com.atlassian.auiplugin:split_aui.splitchunk.f5244b0828.js"
+            data-wrm-key="com.atlassian.auiplugin:split_aui.splitchunk.f5244b0828" data-wrm-batch-type="resource"
+            data-initially-rendered></script>
+    <script src="/s/d41d8cd98f00b204e9800998ecf8427e-CDN/-ywoqmo/900001/v674ca/9.3.11/_/download/batch/com.atlassian.auiplugin:split_aui.component.async-header/com.atlassian.auiplugin:split_aui.component.async-header.js"
+            data-wrm-key="com.atlassian.auiplugin:split_aui.component.async-header" data-wrm-batch-type="resource"
+            data-initially-rendered></script>
+    <script src="/s/d41d8cd98f00b204e9800998ecf8427e-CDN/-ywoqmo/900001/v674ca/9.3.11/_/download/batch/com.atlassian.auiplugin:split_aui.splitchunk.vendors--6372529f0d/com.atlassian.auiplugin:split_aui.splitchunk.vendors--6372529f0d.js"
+            data-wrm-key="com.atlassian.auiplugin:split_aui.splitchunk.vendors--6372529f0d"
+            data-wrm-batch-type="resource" data-initially-rendered></script>
+    <script src="/s/d41d8cd98f00b204e9800998ecf8427e-CDN/-ywoqmo/900001/v674ca/9.3.11/_/download/batch/com.atlassian.auiplugin:split_aui.splitchunk.d925afe2c0/com.atlassian.auiplugin:split_aui.splitchunk.d925afe2c0.js"
+            data-wrm-key="com.atlassian.auiplugin:split_aui.splitchunk.d925afe2c0" data-wrm-batch-type="resource"
+            data-initially-rendered></script>
+    <script src="/s/d41d8cd98f00b204e9800998ecf8427e-CDN/-ywoqmo/900001/v674ca/9.3.11/_/download/batch/com.atlassian.auiplugin:split_aui.deprecated.component.inline-dialog1/com.atlassian.auiplugin:split_aui.deprecated.component.inline-dialog1.js"
+            data-wrm-key="com.atlassian.auiplugin:split_aui.deprecated.component.inline-dialog1"
+            data-wrm-batch-type="resource" data-initially-rendered></script>
+    <script src="/s/d41d8cd98f00b204e9800998ecf8427e-CDN/-ywoqmo/900001/v674ca/9.3.11/_/download/batch/com.atlassian.auiplugin:split_aui.splitchunk.89403fec76/com.atlassian.auiplugin:split_aui.splitchunk.89403fec76.js"
+            data-wrm-key="com.atlassian.auiplugin:split_aui.splitchunk.89403fec76" data-wrm-batch-type="resource"
+            data-initially-rendered></script>
+    <script src="/s/d41d8cd98f00b204e9800998ecf8427e-CDN/-ywoqmo/900001/v674ca/9.3.11/_/download/batch/com.atlassian.auiplugin:split_aui.deprecated.component.dropdown1/com.atlassian.auiplugin:split_aui.deprecated.component.dropdown1.js"
+            data-wrm-key="com.atlassian.auiplugin:split_aui.deprecated.component.dropdown1"
+            data-wrm-batch-type="resource" data-initially-rendered></script>
+    <script src="/s/d41d8cd98f00b204e9800998ecf8427e-CDN/-ywoqmo/900001/v674ca/9.3.11/_/download/batch/com.atlassian.auiplugin:split_aui.splitchunk.6e1680ef6a/com.atlassian.auiplugin:split_aui.splitchunk.6e1680ef6a.js"
+            data-wrm-key="com.atlassian.auiplugin:split_aui.splitchunk.6e1680ef6a" data-wrm-batch-type="resource"
+            data-initially-rendered></script>
+    <script src="/s/d41d8cd98f00b204e9800998ecf8427e-CDN/-ywoqmo/900001/v674ca/9.3.11/_/download/batch/com.atlassian.auiplugin:split_aui.deprecated.component.dialog1/com.atlassian.auiplugin:split_aui.deprecated.component.dialog1.js"
+            data-wrm-key="com.atlassian.auiplugin:split_aui.deprecated.component.dialog1" data-wrm-batch-type="resource"
+            data-initially-rendered></script>
+    <script src="/s/d41d8cd98f00b204e9800998ecf8427e-CDN/-ywoqmo/900001/v674ca/9.3.11/_/download/batch/com.atlassian.auiplugin:split_aui.component.tabs/com.atlassian.auiplugin:split_aui.component.tabs.js"
+            data-wrm-key="com.atlassian.auiplugin:split_aui.component.tabs" data-wrm-batch-type="resource"
+            data-initially-rendered></script>
+    <script src="/s/d41d8cd98f00b204e9800998ecf8427e-CDN/-ywoqmo/900001/v674ca/9.3.11/_/download/batch/com.atlassian.auiplugin:split_aui.splitchunk.vendors--20e849aab3/com.atlassian.auiplugin:split_aui.splitchunk.vendors--20e849aab3.js"
+            data-wrm-key="com.atlassian.auiplugin:split_aui.splitchunk.vendors--20e849aab3"
+            data-wrm-batch-type="resource" data-initially-rendered></script>
+    <script src="/s/d41d8cd98f00b204e9800998ecf8427e-CDN/-ywoqmo/900001/v674ca/9.3.11/_/download/batch/com.atlassian.auiplugin:split_aui.splitchunk.20e849aab3/com.atlassian.auiplugin:split_aui.splitchunk.20e849aab3.js"
+            data-wrm-key="com.atlassian.auiplugin:split_aui.splitchunk.20e849aab3" data-wrm-batch-type="resource"
+            data-initially-rendered></script>
+    <script src="/s/d41d8cd98f00b204e9800998ecf8427e-CDN/-ywoqmo/900001/v674ca/9.3.11/_/download/batch/com.atlassian.auiplugin:split_aui.splitchunk.489a76bc13/com.atlassian.auiplugin:split_aui.splitchunk.489a76bc13.js"
+            data-wrm-key="com.atlassian.auiplugin:split_aui.splitchunk.489a76bc13" data-wrm-batch-type="resource"
+            data-initially-rendered></script>
+    <script src="/s/d41d8cd98f00b204e9800998ecf8427e-CDN/-ywoqmo/900001/v674ca/9.3.11/_/download/batch/com.atlassian.auiplugin:split_aui.behaviour.progressive-data-set/com.atlassian.auiplugin:split_aui.behaviour.progressive-data-set.js"
+            data-wrm-key="com.atlassian.auiplugin:split_aui.behaviour.progressive-data-set"
+            data-wrm-batch-type="resource" data-initially-rendered></script>
+    <script src="/s/d41d8cd98f00b204e9800998ecf8427e-CDN/-ywoqmo/900001/v674ca/1.0/_/download/batch/jira.webresources:aui-core-amd-shim/jira.webresources:aui-core-amd-shim.js"
+            data-wrm-key="jira.webresources:aui-core-amd-shim" data-wrm-batch-type="resource"
+            data-initially-rendered></script>
+    <script src="/s/d41d8cd98f00b204e9800998ecf8427e-CDN/-ywoqmo/900001/v674ca/6.0.0/_/download/batch/com.atlassian.soy.soy-template-plugin:soy-deps/com.atlassian.soy.soy-template-plugin:soy-deps.js"
+            data-wrm-key="com.atlassian.soy.soy-template-plugin:soy-deps" data-wrm-batch-type="resource"
+            data-initially-rendered></script>
+    <script src="/s/de08bab29b7e43cdd1c495be3ed527f2-CDN/-ywoqmo/900001/v674ca/9.3.11/_/download/batch/com.atlassian.auiplugin:soy/com.atlassian.auiplugin:soy.js?locale=bg-BG"
+            data-wrm-key="com.atlassian.auiplugin:soy" data-wrm-batch-type="resource" data-initially-rendered></script>
+    <script src="/s/de08bab29b7e43cdd1c495be3ed527f2-CDN/-ywoqmo/900001/v674ca/1.0/_/download/batch/jira.webresources:jira-setup-soy-templates/jira.webresources:jira-setup-soy-templates.js?locale=bg-BG"
+            data-wrm-key="jira.webresources:jira-setup-soy-templates" data-wrm-batch-type="resource"
+            data-initially-rendered></script>
+    <script src="/s/d41d8cd98f00b204e9800998ecf8427e-CDN/-ywoqmo/900001/v674ca/1.0/_/download/batch/jira.webresources:deprecator/jira.webresources:deprecator.js"
+            data-wrm-key="jira.webresources:deprecator" data-wrm-batch-type="resource" data-initially-rendered></script>
+    <script src="/s/d41d8cd98f00b204e9800998ecf8427e-CDN/-ywoqmo/900001/v674ca/1.0/_/download/batch/jira.webresources:jira-logger/jira.webresources:jira-logger.js"
+            data-wrm-key="jira.webresources:jira-logger" data-wrm-batch-type="resource"
+            data-initially-rendered></script>
+    <script src="/s/d41d8cd98f00b204e9800998ecf8427e-CDN/-ywoqmo/900001/v674ca/1.0/_/download/batch/jira.webresources:legacy-namespacing/jira.webresources:legacy-namespacing.js"
+            data-wrm-key="jira.webresources:legacy-namespacing" data-wrm-batch-type="resource"
+            data-initially-rendered></script>
+    <script src="/s/d41d8cd98f00b204e9800998ecf8427e-CDN/-ywoqmo/900001/v674ca/4.0.0/_/download/batch/com.atlassian.plugin.jslibs:underscore-1.5.2/com.atlassian.plugin.jslibs:underscore-1.5.2.js"
+            data-wrm-key="com.atlassian.plugin.jslibs:underscore-1.5.2" data-wrm-batch-type="resource"
+            data-initially-rendered></script>
+    <script src="/s/d41d8cd98f00b204e9800998ecf8427e-CDN/-ywoqmo/900001/v674ca/1.0/_/download/batch/jira.webresources:underscore-1.5.2/jira.webresources:underscore-1.5.2.js"
+            data-wrm-key="jira.webresources:underscore-1.5.2" data-wrm-batch-type="resource"
+            data-initially-rendered></script>
+    <script src="/s/d41d8cd98f00b204e9800998ecf8427e-CDN/-ywoqmo/900001/v674ca/4.0.0/_/download/batch/com.atlassian.plugin.jslibs:backbone-1.0.0-factory/com.atlassian.plugin.jslibs:backbone-1.0.0-factory.js"
+            data-wrm-key="com.atlassian.plugin.jslibs:backbone-1.0.0-factory" data-wrm-batch-type="resource"
+            data-initially-rendered></script>
+    <script src="/s/d41d8cd98f00b204e9800998ecf8427e-CDN/-ywoqmo/900001/v674ca/1.0/_/download/batch/jira.webresources:backbone-queryparams-lib/jira.webresources:backbone-queryparams-lib.js"
+            data-wrm-key="jira.webresources:backbone-queryparams-lib" data-wrm-batch-type="resource"
+            data-initially-rendered></script>
+    <script src="/s/d41d8cd98f00b204e9800998ecf8427e-CDN/-ywoqmo/900001/v674ca/1.0/_/download/batch/jira.webresources:backbone-1.0.0/jira.webresources:backbone-1.0.0.js"
+            data-wrm-key="jira.webresources:backbone-1.0.0" data-wrm-batch-type="resource"
+            data-initially-rendered></script>
+    <script src="/s/d41d8cd98f00b204e9800998ecf8427e-CDN/-ywoqmo/900001/v674ca/4.0.0/_/download/batch/com.atlassian.plugin.jslibs:marionette-1.6.4-factory/com.atlassian.plugin.jslibs:marionette-1.6.4-factory.js"
+            data-wrm-key="com.atlassian.plugin.jslibs:marionette-1.6.4-factory" data-wrm-batch-type="resource"
+            data-initially-rendered></script>
+    <script src="/s/d41d8cd98f00b204e9800998ecf8427e-CDN/-ywoqmo/900001/v674ca/1.0/_/download/batch/jira.webresources:marionette/jira.webresources:marionette.js"
+            data-wrm-key="jira.webresources:marionette" data-wrm-batch-type="resource" data-initially-rendered></script>
+    <script src="/s/d41d8cd98f00b204e9800998ecf8427e-CDN/-ywoqmo/900001/v674ca/9.3.11/_/download/batch/com.atlassian.auiplugin:split_aui.splitchunk.a2b2c71491/com.atlassian.auiplugin:split_aui.splitchunk.a2b2c71491.js"
+            data-wrm-key="com.atlassian.auiplugin:split_aui.splitchunk.a2b2c71491" data-wrm-batch-type="resource"
+            data-initially-rendered></script>
+    <script src="/s/d41d8cd98f00b204e9800998ecf8427e-CDN/-ywoqmo/900001/v674ca/9.3.11/_/download/batch/com.atlassian.auiplugin:split_aui.pattern.badge/com.atlassian.auiplugin:split_aui.pattern.badge.js"
+            data-wrm-key="com.atlassian.auiplugin:split_aui.pattern.badge" data-wrm-batch-type="resource"
+            data-initially-rendered></script>
+    <script src="/s/d41d8cd98f00b204e9800998ecf8427e-CDN/-ywoqmo/900001/v674ca/9.3.11/_/download/batch/com.atlassian.auiplugin:split_aui.splitchunk.57d1ac075f/com.atlassian.auiplugin:split_aui.splitchunk.57d1ac075f.js"
+            data-wrm-key="com.atlassian.auiplugin:split_aui.splitchunk.57d1ac075f" data-wrm-batch-type="resource"
+            data-initially-rendered></script>
+    <script src="/s/d41d8cd98f00b204e9800998ecf8427e-CDN/-ywoqmo/900001/v674ca/9.3.11/_/download/batch/com.atlassian.auiplugin:split_aui.splitchunk.af1935061c/com.atlassian.auiplugin:split_aui.splitchunk.af1935061c.js"
+            data-wrm-key="com.atlassian.auiplugin:split_aui.splitchunk.af1935061c" data-wrm-batch-type="resource"
+            data-initially-rendered></script>
+    <script src="/s/d41d8cd98f00b204e9800998ecf8427e-CDN/-ywoqmo/900001/v674ca/9.3.11/_/download/batch/com.atlassian.auiplugin:split_aui.component.button/com.atlassian.auiplugin:split_aui.component.button.js"
+            data-wrm-key="com.atlassian.auiplugin:split_aui.component.button" data-wrm-batch-type="resource"
+            data-initially-rendered></script>
+    <script src="/s/d41d8cd98f00b204e9800998ecf8427e-CDN/-ywoqmo/900001/v674ca/9.3.11/_/download/batch/com.atlassian.auiplugin:split_aui.pattern.lozenge/com.atlassian.auiplugin:split_aui.pattern.lozenge.js"
+            data-wrm-key="com.atlassian.auiplugin:split_aui.pattern.lozenge" data-wrm-batch-type="resource"
+            data-initially-rendered></script>
+    <script src="/s/d41d8cd98f00b204e9800998ecf8427e-CDN/-ywoqmo/900001/v674ca/9.3.11/_/download/batch/com.atlassian.auiplugin:split_aui.pattern.label/com.atlassian.auiplugin:split_aui.pattern.label.js"
+            data-wrm-key="com.atlassian.auiplugin:split_aui.pattern.label" data-wrm-batch-type="resource"
+            data-initially-rendered></script>
+    <script src="/s/d41d8cd98f00b204e9800998ecf8427e-CDN/-ywoqmo/900001/v674ca/9.3.11/_/download/batch/com.atlassian.auiplugin:split_aui.splitchunk.16f099a0da/com.atlassian.auiplugin:split_aui.splitchunk.16f099a0da.js"
+            data-wrm-key="com.atlassian.auiplugin:split_aui.splitchunk.16f099a0da" data-wrm-batch-type="resource"
+            data-initially-rendered></script>
+    <script src="/s/d41d8cd98f00b204e9800998ecf8427e-CDN/-ywoqmo/900001/v674ca/9.3.11/_/download/batch/com.atlassian.auiplugin:split_aui.pattern.table/com.atlassian.auiplugin:split_aui.pattern.table.js"
+            data-wrm-key="com.atlassian.auiplugin:split_aui.pattern.table" data-wrm-batch-type="resource"
+            data-initially-rendered></script>
+    <script src="/s/d41d8cd98f00b204e9800998ecf8427e-CDN/-ywoqmo/900001/v674ca/9.3.11/_/download/batch/com.atlassian.auiplugin:split_aui.splitchunk.be1eb78c1a/com.atlassian.auiplugin:split_aui.splitchunk.be1eb78c1a.js"
+            data-wrm-key="com.atlassian.auiplugin:split_aui.splitchunk.be1eb78c1a" data-wrm-batch-type="resource"
+            data-initially-rendered></script>
+    <script src="/s/d41d8cd98f00b204e9800998ecf8427e-CDN/-ywoqmo/900001/v674ca/9.3.11/_/download/batch/com.atlassian.auiplugin:split_aui.splitchunk.23f50a6f00/com.atlassian.auiplugin:split_aui.splitchunk.23f50a6f00.js"
+            data-wrm-key="com.atlassian.auiplugin:split_aui.splitchunk.23f50a6f00" data-wrm-batch-type="resource"
+            data-initially-rendered></script>
+    <script src="/s/d41d8cd98f00b204e9800998ecf8427e-CDN/-ywoqmo/900001/v674ca/9.3.11/_/download/batch/com.atlassian.auiplugin:split_aui.component.tooltip/com.atlassian.auiplugin:split_aui.component.tooltip.js"
+            data-wrm-key="com.atlassian.auiplugin:split_aui.component.tooltip" data-wrm-batch-type="resource"
+            data-initially-rendered></script>
+    <script src="/s/de08bab29b7e43cdd1c495be3ed527f2-CDN/-ywoqmo/900001/v674ca/2.2.3/_/download/batch/com.atlassian.plugins.issue-status-plugin:issue-status-resources/com.atlassian.plugins.issue-status-plugin:issue-status-resources.js?locale=bg-BG"
+            data-wrm-key="com.atlassian.plugins.issue-status-plugin:issue-status-resources"
+            data-wrm-batch-type="resource" data-initially-rendered></script>
+    <script src="/s/d41d8cd98f00b204e9800998ecf8427e-CDN/-ywoqmo/900001/v674ca/1.0/_/download/batch/jira.webresources:jira-util-strings/jira.webresources:jira-util-strings.js"
+            data-wrm-key="jira.webresources:jira-util-strings" data-wrm-batch-type="resource"
+            data-initially-rendered></script>
+    <script src="/s/d41d8cd98f00b204e9800998ecf8427e-CDN/-ywoqmo/900001/v674ca/1.0/_/download/batch/jira.webresources:jira-metadata/jira.webresources:jira-metadata.js"
+            data-wrm-key="jira.webresources:jira-metadata" data-wrm-batch-type="resource"
+            data-initially-rendered></script>
+    <script src="/s/d41d8cd98f00b204e9800998ecf8427e-CDN/-ywoqmo/900001/v674ca/1.0/_/download/batch/jira.webresources:jira-formatter/jira.webresources:jira-formatter.js"
+            data-wrm-key="jira.webresources:jira-formatter" data-wrm-batch-type="resource"
+            data-initially-rendered></script>
+    <script src="/s/d41d8cd98f00b204e9800998ecf8427e-CDN/-ywoqmo/900001/v674ca/9.3.11/_/download/batch/com.atlassian.auiplugin:split_aui.behaviour.key-code/com.atlassian.auiplugin:split_aui.behaviour.key-code.js"
+            data-wrm-key="com.atlassian.auiplugin:split_aui.behaviour.key-code" data-wrm-batch-type="resource"
+            data-initially-rendered></script>
+    <script src="/s/d41d8cd98f00b204e9800998ecf8427e-CDN/-ywoqmo/900001/v674ca/1.0/_/download/batch/jira.webresources:jira-key-code/jira.webresources:jira-key-code.js"
+            data-wrm-key="jira.webresources:jira-key-code" data-wrm-batch-type="resource"
+            data-initially-rendered></script>
+    <script src="/s/d41d8cd98f00b204e9800998ecf8427e-CDN/-ywoqmo/900001/v674ca/1.0/_/download/batch/jira.webresources:jira-data-stores/jira.webresources:jira-data-stores.js"
+            data-wrm-key="jira.webresources:jira-data-stores" data-wrm-batch-type="resource"
+            data-initially-rendered></script>
+    <script src="/s/d41d8cd98f00b204e9800998ecf8427e-CDN/-ywoqmo/900001/v674ca/1.0/_/download/batch/jira.webresources:jira-smart-ajax/jira.webresources:jira-smart-ajax.js"
+            data-wrm-key="jira.webresources:jira-smart-ajax" data-wrm-batch-type="resource"
+            data-initially-rendered></script>
+    <script src="/s/d41d8cd98f00b204e9800998ecf8427e-CDN/-ywoqmo/900001/v674ca/9.3.11/_/download/batch/com.atlassian.auiplugin:split_aui.splitchunk.3d2cb1af14/com.atlassian.auiplugin:split_aui.splitchunk.3d2cb1af14.js"
+            data-wrm-key="com.atlassian.auiplugin:split_aui.splitchunk.3d2cb1af14" data-wrm-batch-type="resource"
+            data-initially-rendered></script>
+    <script src="/s/d41d8cd98f00b204e9800998ecf8427e-CDN/-ywoqmo/900001/v674ca/9.3.11/_/download/batch/com.atlassian.auiplugin:split_aui.splitchunk.ec75f48bb8/com.atlassian.auiplugin:split_aui.splitchunk.ec75f48bb8.js"
+            data-wrm-key="com.atlassian.auiplugin:split_aui.splitchunk.ec75f48bb8" data-wrm-batch-type="resource"
+            data-initially-rendered></script>
+    <script src="/s/d41d8cd98f00b204e9800998ecf8427e-CDN/-ywoqmo/900001/v674ca/9.3.11/_/download/batch/com.atlassian.auiplugin:split_aui.component.flag/com.atlassian.auiplugin:split_aui.component.flag.js"
+            data-wrm-key="com.atlassian.auiplugin:split_aui.component.flag" data-wrm-batch-type="resource"
+            data-initially-rendered></script>
+    <script src="/s/d41d8cd98f00b204e9800998ecf8427e-CDN/-ywoqmo/900001/v674ca/3.1.5/_/download/batch/com.atlassian.plugins.atlassian-plugins-webresource-plugin:data/com.atlassian.plugins.atlassian-plugins-webresource-plugin:data.js"
+            data-wrm-key="com.atlassian.plugins.atlassian-plugins-webresource-plugin:data"
+            data-wrm-batch-type="resource" data-initially-rendered></script>
+    <script src="/s/d41d8cd98f00b204e9800998ecf8427e-CDN/-ywoqmo/900001/v674ca/1.0/_/download/batch/jira.webresources:wrm-data/jira.webresources:wrm-data.js"
+            data-wrm-key="jira.webresources:wrm-data" data-wrm-batch-type="resource" data-initially-rendered></script>
+    <script src="/s/d41d8cd98f00b204e9800998ecf8427e-CDN/-ywoqmo/900001/v674ca/1.0/_/download/batch/jira.webresources:wrm-context-path/jira.webresources:wrm-context-path.js"
+            data-wrm-key="jira.webresources:wrm-context-path" data-wrm-batch-type="resource"
+            data-initially-rendered></script>
+    <script src="/s/de08bab29b7e43cdd1c495be3ed527f2-CDN/-ywoqmo/900001/v674ca/1.0/_/download/batch/jira.webresources:messages/jira.webresources:messages.js?locale=bg-BG"
+            data-wrm-key="jira.webresources:messages" data-wrm-batch-type="resource" data-initially-rendered></script>
+    <script src="/s/d41d8cd98f00b204e9800998ecf8427e-CDN/-ywoqmo/900001/v674ca/1.0/_/download/batch/jira.webresources:aui-extensions/jira.webresources:aui-extensions.js"
+            data-wrm-key="jira.webresources:aui-extensions" data-wrm-batch-type="resource"
+            data-initially-rendered></script>
+    <script src="/s/d41d8cd98f00b204e9800998ecf8427e-CDN/-ywoqmo/900001/v674ca/1.0/_/download/batch/jira.webresources:jira-events/jira.webresources:jira-events.js"
+            data-wrm-key="jira.webresources:jira-events" data-wrm-batch-type="resource"
+            data-initially-rendered></script>
+    <script src="/s/d41d8cd98f00b204e9800998ecf8427e-CDN/-ywoqmo/900001/v674ca/1.0/_/download/batch/jira.webresources:jira-urlhelpers/jira.webresources:jira-urlhelpers.js"
+            data-wrm-key="jira.webresources:jira-urlhelpers" data-wrm-batch-type="resource"
+            data-initially-rendered></script>
+    <script src="/s/d41d8cd98f00b204e9800998ecf8427e-CDN/-ywoqmo/900001/v674ca/1.0/_/download/batch/jira.webresources:jira-objects/jira.webresources:jira-objects.js"
+            data-wrm-key="jira.webresources:jira-objects" data-wrm-batch-type="resource"
+            data-initially-rendered></script>
+    <script src="/s/d41d8cd98f00b204e9800998ecf8427e-CDN/-ywoqmo/900001/v674ca/1.0/_/download/batch/jira.webresources:keyboard-event-extensions/jira.webresources:keyboard-event-extensions.js"
+            data-wrm-key="jira.webresources:keyboard-event-extensions" data-wrm-batch-type="resource"
+            data-initially-rendered></script>
+    <script src="/s/d41d8cd98f00b204e9800998ecf8427e-CDN/-ywoqmo/900001/v674ca/1.0/_/download/batch/jira.webresources:jira-base-control/jira.webresources:jira-base-control.js"
+            data-wrm-key="jira.webresources:jira-base-control" data-wrm-batch-type="resource"
+            data-initially-rendered></script>
+    <script src="/s/d41d8cd98f00b204e9800998ecf8427e-CDN/-ywoqmo/900001/v674ca/1.0/_/download/batch/jira.webresources:browser-properties/jira.webresources:browser-properties.js"
+            data-wrm-key="jira.webresources:browser-properties" data-wrm-batch-type="resource"
+            data-initially-rendered></script>
+    <script src="/s/d41d8cd98f00b204e9800998ecf8427e-CDN/-ywoqmo/900001/v674ca/1.0/_/download/batch/jira.webresources:escape-css-selector-polyfill/jira.webresources:escape-css-selector-polyfill.js"
+            data-wrm-key="jira.webresources:escape-css-selector-polyfill" data-wrm-batch-type="resource"
+            data-initially-rendered></script>
+    <script src="/s/d41d8cd98f00b204e9800998ecf8427e-CDN/-ywoqmo/900001/v674ca/1.0/_/download/batch/jira.webresources:jquery-escape-selector-polyfill/jira.webresources:jquery-escape-selector-polyfill.js"
+            data-wrm-key="jira.webresources:jquery-escape-selector-polyfill" data-wrm-batch-type="resource"
+            data-initially-rendered></script>
+    <script src="/s/d41d8cd98f00b204e9800998ecf8427e-CDN/-ywoqmo/900001/v674ca/1.0/_/download/batch/jira.webresources:legacy-table-utils/jira.webresources:legacy-table-utils.js"
+            data-wrm-key="jira.webresources:legacy-table-utils" data-wrm-batch-type="resource"
+            data-initially-rendered></script>
+    <script src="/s/d41d8cd98f00b204e9800998ecf8427e-CDN/-ywoqmo/900001/v674ca/4.0.0/_/download/batch/com.atlassian.plugin.jslibs:cookie-1.0.0/com.atlassian.plugin.jslibs:cookie-1.0.0.js"
+            data-wrm-key="com.atlassian.plugin.jslibs:cookie-1.0.0" data-wrm-batch-type="resource"
+            data-initially-rendered></script>
+    <script src="/s/d41d8cd98f00b204e9800998ecf8427e-CDN/-ywoqmo/900001/v674ca/1.0/_/download/batch/jira.webresources:cookie/jira.webresources:cookie.js"
+            data-wrm-key="jira.webresources:cookie" data-wrm-batch-type="resource" data-initially-rendered></script>
+    <script src="/s/d41d8cd98f00b204e9800998ecf8427e-CDN/-ywoqmo/900001/v674ca/1.0/_/download/batch/jira.webresources:jquery-tooltip-proxy/jira.webresources:jquery-tooltip-proxy.js"
+            data-wrm-key="jira.webresources:jquery-tooltip-proxy" data-wrm-batch-type="resource"
+            data-initially-rendered></script>
+    <script src="/s/d41d8cd98f00b204e9800998ecf8427e-CDN/-ywoqmo/900001/v674ca/1.0/_/download/batch/jira.webresources:util-lite/jira.webresources:util-lite.js"
+            data-wrm-key="jira.webresources:util-lite" data-wrm-batch-type="resource" data-initially-rendered></script>
+    <script src="/s/d41d8cd98f00b204e9800998ecf8427e-CDN/-ywoqmo/900001/v674ca/9.3.11/_/download/batch/com.atlassian.auiplugin:split_aui.vendor.underscore/com.atlassian.auiplugin:split_aui.vendor.underscore.js"
+            data-wrm-key="com.atlassian.auiplugin:split_aui.vendor.underscore" data-wrm-batch-type="resource"
+            data-initially-rendered></script>
+    <script src="/s/d41d8cd98f00b204e9800998ecf8427e-CDN/-ywoqmo/900001/v674ca/1.0/_/download/batch/jira.webresources:content-retrievers/jira.webresources:content-retrievers.js"
+            data-wrm-key="jira.webresources:content-retrievers" data-wrm-batch-type="resource"
+            data-initially-rendered></script>
+    <script src="/s/d41d8cd98f00b204e9800998ecf8427e-CDN/-ywoqmo/900001/v674ca/1.0/_/download/batch/jira.webresources:inline-layer/jira.webresources:inline-layer.js"
+            data-wrm-key="jira.webresources:inline-layer" data-wrm-batch-type="resource"
+            data-initially-rendered></script>
+    <script src="/s/d41d8cd98f00b204e9800998ecf8427e-CDN/-ywoqmo/900001/v674ca/1.0/_/download/batch/jira.webresources:list/jira.webresources:list.js"
+            data-wrm-key="jira.webresources:list" data-wrm-batch-type="resource" data-initially-rendered></script>
+    <script src="/s/d41d8cd98f00b204e9800998ecf8427e-CDN/-ywoqmo/900001/v674ca/1.0/_/download/batch/jira.webresources:select-model/jira.webresources:select-model.js"
+            data-wrm-key="jira.webresources:select-model" data-wrm-batch-type="resource"
+            data-initially-rendered></script>
+    <script src="/s/d41d8cd98f00b204e9800998ecf8427e-CDN/-ywoqmo/900001/v674ca/1.0/_/download/batch/jira.webresources:frother-select-handlers/jira.webresources:frother-select-handlers.js"
+            data-wrm-key="jira.webresources:frother-select-handlers" data-wrm-batch-type="resource"
+            data-initially-rendered></script>
+    <script src="/s/d41d8cd98f00b204e9800998ecf8427e-CDN/-ywoqmo/900001/v674ca/9.3.11/_/download/batch/com.atlassian.auiplugin:split_aui.component.spinner/com.atlassian.auiplugin:split_aui.component.spinner.js"
+            data-wrm-key="com.atlassian.auiplugin:split_aui.component.spinner" data-wrm-batch-type="resource"
+            data-initially-rendered></script>
+    <script src="/s/d41d8cd98f00b204e9800998ecf8427e-CDN/-ywoqmo/900001/v674ca/9.3.11/_/download/batch/com.atlassian.auiplugin:split_aui.splitchunk.86ad04cc86/com.atlassian.auiplugin:split_aui.splitchunk.86ad04cc86.js"
+            data-wrm-key="com.atlassian.auiplugin:split_aui.splitchunk.86ad04cc86" data-wrm-batch-type="resource"
+            data-initially-rendered></script>
+    <script src="/s/d41d8cd98f00b204e9800998ecf8427e-CDN/-ywoqmo/900001/v674ca/9.3.11/_/download/batch/com.atlassian.auiplugin:split_aui.deprecated.behaviour.jquery-spin/com.atlassian.auiplugin:split_aui.deprecated.behaviour.jquery-spin.js"
+            data-wrm-key="com.atlassian.auiplugin:split_aui.deprecated.behaviour.jquery-spin"
+            data-wrm-batch-type="resource" data-initially-rendered></script>
+    <script src="/s/de08bab29b7e43cdd1c495be3ed527f2-CDN/-ywoqmo/900001/v674ca/1.0/_/download/batch/jira.webresources:frother-queryable-dropdown-select/jira.webresources:frother-queryable-dropdown-select.js?locale=bg-BG"
+            data-wrm-key="jira.webresources:frother-queryable-dropdown-select" data-wrm-batch-type="resource"
+            data-initially-rendered></script>
+    <script src="/s/d41d8cd98f00b204e9800998ecf8427e-CDN/-ywoqmo/900001/v674ca/1.0/_/download/batch/jira.webresources:frother-singleselect/jira.webresources:frother-singleselect.js"
+            data-wrm-key="jira.webresources:frother-singleselect" data-wrm-batch-type="resource"
+            data-initially-rendered></script>
+    <script src="/s/d41d8cd98f00b204e9800998ecf8427e-CDN/-ywoqmo/900001/v674ca/9.3.11/_/download/batch/com.atlassian.auiplugin:split_aui.pattern.multi-step-progress/com.atlassian.auiplugin:split_aui.pattern.multi-step-progress.js"
+            data-wrm-key="com.atlassian.auiplugin:split_aui.pattern.multi-step-progress" data-wrm-batch-type="resource"
+            data-initially-rendered></script>
+    <script src="/s/d41d8cd98f00b204e9800998ecf8427e-CDN/-ywoqmo/900001/v674ca/9.3.11/_/download/batch/com.atlassian.auiplugin:split_aui.component.dialog2/com.atlassian.auiplugin:split_aui.component.dialog2.js"
+            data-wrm-key="com.atlassian.auiplugin:split_aui.component.dialog2" data-wrm-batch-type="resource"
+            data-initially-rendered></script>
+    <script src="/s/d41d8cd98f00b204e9800998ecf8427e-CDN/-ywoqmo/900001/v674ca/1.0/_/download/batch/jira.webresources:jira-setup/jira.webresources:jira-setup.js"
+            data-wrm-key="jira.webresources:jira-setup" data-wrm-batch-type="resource" data-initially-rendered></script>
+
+    <meta name="ajs-setup-session-id" content="ce553b5a-0921-4b6c-8c87-fb75dca4032a"/>
+    <meta name="ajs-server-id" content="BPD2-DYQY-R4GN-7K6A"/>
+    <meta name="ajs-instant-setup" content="false"/>
+    <meta name="ajs-setup-analytics-iframe-url" content="https://www.atlassian.com/pingback"/>
+</head>
+<body id="jira"
+      class="aui-layout aui-theme-default aui-page-focused aui-page-focused-large aui-page-size-large jira-setup-mode-page"
+      data-version="9.0.0-m0009">
+<div id="page">
+    <header id="header" role="banner">
+        <nav class="aui-header" role="navigation">
+            <div class="aui-header-inner">
+                <div class="aui-header-primary">
+                    <h1 id="logo" class="aui-header-logo">
+                        <img src="/images/jira-core.png" alt="Jira"/>
+                    </h1>
+                </div>
+            </div>
+        </nav>
+    </header>
+
+    <div id="content">
+        <div class="aui-page-panel margin-fix">
+            <div class="aui-page-panel-inner">
+                <main role="main" id="main" class="aui-page-panel-content">
+                    <form id="jira-setup-mode" class="aui ajs-dirty-warning-exempt jira-setup-form"
+                          action="SetupMode.jspa" method="post">
+                        <h2>Jira setup
+                            <button id="jira-setup-language-dialog-trigger"
+                                    class="aui-button aui-button-subtle jira-setup-language-dialog-trigger"
+                                    type="button"><span
+                                    class=" aui-icon aui-icon-small aui-iconfont-weblink">Language </span>Language
+                            </button>
+                        </h2>
+                        <div class="jira-setup-choice-box" data-choice-value="instant"
+                             data-choice-submit="Continue to MyAtlassian">
+                            <div class="jira-setup-choice-cell jira-setup-choice-left"><img
+                                    src="/images/setup/setup-mode-instant.png" width="102" height="100"
+                                    class="jira-setup-mode-image"></div>
+                            <div class="jira-setup-choice-cell jira-setup-choice-center"><h2
+                                    class="jira-setup-choice-box-header">Set it up for me</h2>
+                                <p class="jira-setup-choice-box-description">This is the quick setup for <strong>demonstration</strong>
+                                    and <strong>evaluation environments</strong>. We'll do most of the Jira
+                                    configuration for you, but you <strong>need to be online with a working internet
+                                        connection</strong> so we can help you generate a Jira trial license at <a
+                                            target="_blank" href="http://my.atlassian.com">MyAtlassian</a>. You can
+                                    change the configuration later if you need to.</p></div>
+                        </div>
+                        <div class="jira-setup-choice-box" data-choice-value="classic" data-choice-submit="Next">
+                            <div class="jira-setup-choice-cell jira-setup-choice-left"><img
+                                    src="/images/setup/setup-mode-advanced.png" width="102" height="100"
+                                    class="jira-setup-mode-image"></div>
+                            <div class="jira-setup-choice-cell jira-setup-choice-center"><h2
+                                    class="jira-setup-choice-box-header">I'll set it up myself</h2>
+                                <p class="jira-setup-choice-box-description">Set up and configure your Jira instance
+                                    manually. This is recommended for <strong>production environments</strong>, or if
+                                    you don't have a working internet connection.</p></div>
+                        </div>
+                        <input type="hidden" name="setupOption" id="jira-setup-choice-value" value="">
+                        <p class="jira-setup-mode-cookies-notice">Please make sure cookies are enabled before
+                            continuing.</p><input type="hidden" name="atl_token"
+                                                  value="bootstrapping_ceff0e175692a5890fd06dcb4ad4dfc2ca66adf5_lout"/>
+                        <div class="buttons-container jira-setup-form-with-no-fields">
+                            <div class="buttons"><input type="submit" id="jira-setup-mode-submit"
+                                                        class="aui-button aui-button-primary jira-setup-form-submit"
+                                                        accesskey="s" title="Press Alt+s to submit this form"
+                                                        value="Next"/></div>
+                        </div>
+                    </form>
+                    <section role="dialog" id="jira-setup-language-dialog" data-aui-modal="true"
+                             class="aui-layer aui-dialog2 aui-dialog2-medium" hidden></section>
+                </main>
+            </div>
+        </div>
+    </div>
+    <footer id="footer" role="contentinfo"></footer>
+</div>
+</body>
+</html>

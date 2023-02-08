@@ -1,0 +1,45 @@
+<th:block th:fragment="navbar-admin">
+    <nav class="navbar navbar-expand-lg bg-eventures">
+        <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse"
+                data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false"
+                aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+
+        <a class="navbar-brand nav-link-black font-weight-bold" href="/">Eventures</a>
+
+        <div class="collapse navbar-collapse d-flex justify-content-end" id="navbarSupportedContent">
+            <ul class="navbar-nav font-weight-bold">
+                <li class="nav-item">
+                    <a class="nav-link nav-link-black" href="/home">Home</a>
+                </li>
+                <li class="nav-item dropdown">
+                    <a class="nav-link nav-link-black dropdown-toggle" href="#" id="navbarDropdown" role="button"
+                       data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                        Events
+                    </a>
+                    <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                        <a class="dropdown-item" th:href="@{/events/all}">All Events</a>
+                        <a class="dropdown-item" th:href="@{/events/my}">My Events</a>
+                        <div class="dropdown-divider"></div>
+                        <a class="dropdown-item" th:href="@{/events/create}">Create Event</a>
+                    </div>
+                </li>
+                <li class="nav-item dropdown">
+                    <a class="nav-link nav-link-black dropdown-toggle" href="#" id="navbarDropdownOrders" role="button"
+                       data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                        Orders
+                    </a>
+                    <div class="dropdown-menu" aria-labelledby="navbarDropdownOrders">
+                        <a class="dropdown-item" th:href="@{/orders/all}">All Orders</a>
+                    </div>
+                </li>
+                <li class="nav-item">
+                    <form th:action="@{/logout}" th:method="POST">
+                        <button type="submit" class="nav-link nav-link-black font-weight-bold">Logout</button>
+                    </form>
+                </li>
+            </ul>
+        </div>
+    </nav>
+</th:block>

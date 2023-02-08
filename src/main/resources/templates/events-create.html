@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:th="http://www.thymeleaf.org">
+<head>
+    <th:block th:replace="fragments/head"></th:block>
+</head>
+<body>
+<div class="container-fluid">
+    <header>
+        <th:block th:replace="fragments/navbar"></th:block>
+    </header>
+    <main class="mt-3">
+        <h1 class="text-center font-weight-bold">Create Event</h1>
+        <hr class="hr-2 bg-eventures">
+        <form class="w-50 mx-auto" th:action="@{/events/create}" th:method="POST">
+            <div class="name-and-place-holder d-flex justify-content-between">
+                <div class="form-group w-40">
+                    <label for="name">Name</label>
+                    <input type="text" name="name" class="form-control" id="name"
+                           placeholder="Name..."/>
+                </div>
+                <div class="form-group w-40">
+                    <label for="place">Place</label>
+                    <input type="text" name="place" class="form-control" id="place" placeholder="Place..."/>
+                </div>
+            </div>
+            <hr class="hr-2 bg-eventures">
+            <div class="start-and-end-holder d-flex justify-content-between">
+                <div class="form-group w-40">
+                    <label for="startTime">Start</label>
+                    <input type="datetime-local" name="startTime" class="form-control" id="startTime"
+                           placeholder="Start..."/>
+                </div>
+                <div class="form-group w-40">
+                    <label for="endTime">End</label>
+                    <input type="datetime-local" name="endTime" class="form-control" id="endTime" placeholder="End..."/>
+                </div>
+            </div>
+            <hr class="hr-2 bg-eventures">
+            <div class="tickets-and-price-holder d-flex justify-content-between">
+                <div class="form-group w-40">
+                    <label for="totalTickets">Total Tickets</label>
+                    <input type="number" name="totalTickets" class="form-control" id="totalTickets"
+                           placeholder="Total Tickets..."/>
+                </div>
+                <div class="form-group w-40">
+                    <label for="pricePerTicket">Price per ticket</label>
+                    <input type="number" name="pricePerTicket" class="form-control" id="pricePerTicket" placeholder="Price per ticket..."/>
+                </div>
+            </div>
+            <hr class="hr-2 bg-eventures">
+            <div class="button-holder d-flex justify-content-around">
+                <button type="submit" class="btn bg-eventures">Create Event</button>
+            </div>
+        </form>
+    </main>
+    <footer class="footer mt-5 p-3 bg-eventures">
+        <div class="container-fluid">
+            <div class="text-muted container-fluid text-center">&copy; CopyRight Eventures Inc 2018-2018. All rights
+                reserved.
+            </div>
+        </div>
+    </footer>
+</div>
+</body>
+</html>

@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:th="http://www.thymeleaf.org">
+<head>
+    <th:block th:replace="fragments/head"></th:block>
+</head>
+<body>
+<div class="container-fluid">
+    <header>
+        <th:block th:replace="fragments/navbar"></th:block>
+    </header>
+    <main class="mt-3">
+        <h1 class="text-dark text-center">All Events</h1>
+        <hr class="hr-2 bg-eventures">
+        <div class="radio-navigation-holder w-50 mx-auto d-flex justify-content-between">
+            <div class="form-check form-check-inline">
+                <input class="form-check-input mb-1" type="radio" id="availableRadio" value="available"
+                       name="selection">
+                <h4 class="font-weight-bold ml-2"><label class="form-check-label" for="availableRadio">Available</label>
+                </h4>
+            </div>
+            <div class="form-check form-check-inline">
+                <input class="form-check-input mb-1" type="radio" id="unavailableRadio" value="unavailable"
+                       name="selection">
+                <h4 class="font-weight-bold ml-2"><label class="form-check-label"
+                                                         for="unavailableRadio">Unavailable</label></h4>
+            </div>
+            <div class="form-check form-check-inline">
+                <input class="form-check-input mb-1" type="radio" id="allRadio" value="all" name="selection">
+                <h4 class="font-weight-bold ml-2"><label class="form-check-label" for="allRadio">All</label></h4>
+            </div>
+        </div>
+        <hr class="hr-2 bg-eventures">
+        <table class="table table-eventures">
+            <thead>
+            <tr class="font-weight-bold">
+                <th class="w-5">#</th>
+                <th class="w-30">Name</th>
+                <th class="w-15">Start</th>
+                <th class="w-15">End</th>
+                <th class="w-10">Price</th>
+                <th class="w-15">Remaining Tickets</th>
+                <th class="w-10">Actions</th>
+            </tr>
+            </thead>
+            <tbody class="table-body">
+
+            </tbody>
+        </table>
+    </main>
+    <footer class="footer mt-1 p-3 bg-eventures">
+        <div class="container-fluid">
+            <div class="text-muted container-fluid text-center">&copy; CopyRight Eventures Inc 2018-2018. All rights
+                reserved.
+            </div>
+        </div>
+    </footer>
+</div>
+<script>
+    $('.form-check-inline>input,.form-check-inline>label').click(function (e) {
+        $('.table-body').empty();
+
+        let value = $(this).val();
+
+        $.ajax({
+            type: 'GET',
+            url: 'http://localhost:8000/events/api/' + value,
+            success: function (data) {
+                $.get('/templates/table-event-template.html', function (template) {
+                    let index = 1;
+
+                    for (const object of data) {
+                        let renderedEvent = template
+                            .replace('{{index}}', index++)
+                            .replace('{{startTime}}', object['startTime'])
+                            .replace('{{endTime}}', object['endTime'])
+                            .replace('{{pricePerTicket}}', object['pricePerTicket'])
+                            .replace('{{remainingTickets}}', object['remainingTickets']);
+
+                        while(renderedEvent.indexOf('{{id}}') >= 0) {
+                            renderedEvent = renderedEvent.replace('{{id}}', object['id']);
+                        }
+
+                        while(renderedEvent.indexOf('{{name}}') >= 0) {
+                            renderedEvent = renderedEvent.replace('{{name}}', object['name']);
+                        }
+
+                        $('.table-body')
+                            .append(renderedEvent);
+
+                        if(!object['available']) {
+                            $('#order-button-' + object['id']).attr('disabled', true);
+                        }
+                    }
+                });
+            },
+            error: function (err) {
+                console.log(err);
+            }
+        })
+    });
+
+    $('#availableRadio').click();
+</script>
+</body>
+</html>

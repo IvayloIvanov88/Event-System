@@ -1,0 +1,39 @@
+<tr class="event-{{id}}">
+    <td class="w-5 event-index">{{index}}</td>
+    <td class="w-30 event-name">{{name}}</td>
+    <td class="w-15 event-start">{{startTime}}</td>
+    <td class="w-15 event-end">{{endTime}}</td>
+    <td class="w-10 event-price">{{pricePerTicket}}</td>
+    <td class="w-15 event-remaining-tickets">{{remainingTickets}}</td>
+    <td class="w-10 event-order-form">
+        <button id="order-button-{{id}}" type="button" class="btn bg-eventures" data-toggle="modal" data-target="#orderFormModal-{{id}}">Order</button>
+        <!--Modal-->
+        <div class="modal fade" id="orderFormModal-{{id}}" tabindex="-1" role="dialog" aria-labelledby="orderFormModalLabel-{{id}}"
+             aria-hidden="true">
+            <div class="modal-dialog" role="document">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title" id="orderFormModalLabel-{{id}}">Order tickets for {{name}}</h5>
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                        </button>
+                    </div>
+                    <form class="form-inline d-flex justify-content-between" action="/events/order" method="POST">
+                        <div class="modal-body">
+
+                            <div class="form-group">
+                                <label class="mb-1" for="tickets-{{id}}">Tickets</label>
+                                <input type="number" name="tickets" class="form-control ml-3 w-75" id="tickets-{{id}}"/>
+                                <input type="hidden" name="eventId" value="{{id}}">
+                            </div>
+                        </div>
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                            <button type="submit" class="btn bg-eventures">Order</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </td>
+</tr>
