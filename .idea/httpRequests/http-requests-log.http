@@ -1,3 +1,63 @@
+GET http://localhost:8181/events/api/all
+Connection: Keep-Alive
+User-Agent: Apache-HttpClient/4.5.13 (Java/17.0.5)
+Cookie: JSESSIONID=F8837A11342CE085C4C9A66F2F7BF9AA; atlassian.xsrf.token=bootstrapping_ceff0e175692a5890fd06dcb4ad4dfc2ca66adf5_lout
+Accept-Encoding: br,deflate,gzip,x-gzip
+
+<> 2023-02-08T150105.200.html
+
+###
+
+GET http://localhost:8181/events/api/all
+Connection: Keep-Alive
+User-Agent: Apache-HttpClient/4.5.13 (Java/17.0.5)
+Cookie: JSESSIONID=F8837A11342CE085C4C9A66F2F7BF9AA; atlassian.xsrf.token=bootstrapping_ceff0e175692a5890fd06dcb4ad4dfc2ca66adf5_lout
+Accept-Encoding: br,deflate,gzip,x-gzip
+
+<> 2023-02-08T145838.200.html
+
+###
+
+GET http://localhost:8080/events/api/all
+Connection: Keep-Alive
+User-Agent: Apache-HttpClient/4.5.13 (Java/17.0.5)
+Cookie: JSESSIONID=4BFE90DD64825B3B1DD4244C00EDA44C; atlassian.xsrf.token=bootstrapping_ceff0e175692a5890fd06dcb4ad4dfc2ca66adf5_lout
+Accept-Encoding: br,deflate,gzip,x-gzip
+
+###
+
+GET http://localhost:8080/events/api/all
+Connection: Keep-Alive
+User-Agent: Apache-HttpClient/4.5.13 (Java/17.0.5)
+Cookie: JSESSIONID=4BFE90DD64825B3B1DD4244C00EDA44C; atlassian.xsrf.token=bootstrapping_ceff0e175692a5890fd06dcb4ad4dfc2ca66adf5_lout
+Accept-Encoding: br,deflate,gzip,x-gzip
+
+###
+
+GET http://localhost:8080/events/api/all
+Connection: Keep-Alive
+User-Agent: Apache-HttpClient/4.5.13 (Java/17.0.5)
+Cookie: JSESSIONID=4BFE90DD64825B3B1DD4244C00EDA44C; atlassian.xsrf.token=bootstrapping_ceff0e175692a5890fd06dcb4ad4dfc2ca66adf5_lout
+Accept-Encoding: br,deflate,gzip,x-gzip
+
+###
+
+GET http://localhost:8080/events/api/all
+Connection: Keep-Alive
+User-Agent: Apache-HttpClient/4.5.13 (Java/17.0.5)
+Cookie: JSESSIONID=4BFE90DD64825B3B1DD4244C00EDA44C; atlassian.xsrf.token=bootstrapping_ceff0e175692a5890fd06dcb4ad4dfc2ca66adf5_lout
+Accept-Encoding: br,deflate,gzip,x-gzip
+
+###
+
+GET http://localhost:8080/events/api/all
+Connection: Keep-Alive
+User-Agent: Apache-HttpClient/4.5.13 (Java/17.0.5)
+Cookie: JSESSIONID=4BFE90DD64825B3B1DD4244C00EDA44C; atlassian.xsrf.token=bootstrapping_ceff0e175692a5890fd06dcb4ad4dfc2ca66adf5_lout
+Accept-Encoding: br,deflate,gzip,x-gzip
+
+###
+
 GET http://localhost:8080
 Connection: Keep-Alive
 User-Agent: Apache-HttpClient/4.5.13 (Java/17.0.5)

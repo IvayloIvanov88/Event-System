@@ -1,6 +1,7 @@
-package org.softuni.eventures.service;
+package org.softuni.eventures.service.impl;
 
 import com.cloudinary.Cloudinary;
+import org.softuni.eventures.service.CloudinaryService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.web.multipart.MultipartFile;

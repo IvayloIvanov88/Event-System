@@ -9,14 +9,13 @@
     <header>
         <th:block th:replace="fragments/navbar"></th:block>
     </header>
-    <main class="mt-3">
-        <div class="jumbotron bg-eventures">
-            <h1 class="text-dark text-center" th:text="|Greetings, Administrator - ${username}|"></h1>
-            <hr class="hr-2 bg-dark">
-            <h3 class="text-muted text-center">
-                Enjoy your work.
-            </h3>
-        </div>
+    <main class="mt-3" th:with="lang = ${#locale.toString().equals('en_US') ? 'bg' : 'en_US'}">
+        <h1 class="text-dark" th:text="#{message.greeting}"></h1>
+        <h2 class="text-muted" th:text="#{message.content}"></h2>
+        <form class="mt-5" th:action="@{/greeting}" th:method="GET">
+            <input type="hidden" th:value="${lang}" name="lang">
+            <button type="submit" id="toggleLangButton">Toggle Language</button>
+        </form>
     </main>
     <footer class="footer mt-1 p-3 bg-eventures">
         <div class="container-fluid">

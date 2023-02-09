@@ -1,4 +1,4 @@
-package org.softuni.eventures.service;
+package org.softuni.eventures.service.impl;
 
 import org.modelmapper.ModelMapper;
 import org.softuni.eventures.domain.entities.User;
@@ -6,6 +6,7 @@ import org.softuni.eventures.domain.entities.UserRole;
 import org.softuni.eventures.domain.models.service.UserServiceModel;
 import org.softuni.eventures.repository.RoleRepository;
 import org.softuni.eventures.repository.UserRepository;
+import org.softuni.eventures.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.userdetails.UserDetails;

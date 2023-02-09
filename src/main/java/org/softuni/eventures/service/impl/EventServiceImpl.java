@@ -1,4 +1,4 @@
-package org.softuni.eventures.service;
+package org.softuni.eventures.service.impl;
 
 import org.modelmapper.ModelMapper;
 import org.softuni.eventures.domain.entities.Event;
@@ -7,6 +7,9 @@ import org.softuni.eventures.domain.models.service.EventServiceModel;
 import org.softuni.eventures.domain.models.service.MyEventsServiceModel;
 import org.softuni.eventures.domain.models.service.OrderServiceModel;
 import org.softuni.eventures.repository.EventRepository;
+import org.softuni.eventures.service.EventService;
+import org.softuni.eventures.service.OrderService;
+import org.softuni.eventures.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
