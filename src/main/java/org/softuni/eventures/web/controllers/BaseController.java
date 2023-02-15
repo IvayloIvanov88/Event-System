@@ -17,7 +17,7 @@ abstract class BaseController {
                 .stream()
                 .findFirst()
                 .orElse(null);
-
+//
         return principalAuthority != null
                 ? principalAuthority.getAuthority()
                 : null;

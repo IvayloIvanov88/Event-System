@@ -8,8 +8,6 @@ public class AllEventsEventViewModel {
 
     private String name;
 
-    private String place;
-
     private LocalDateTime startTime;
 
     private LocalDateTime endTime;
@@ -17,8 +15,6 @@ public class AllEventsEventViewModel {
     private BigDecimal pricePerTicket;
 
     private Integer remainingTickets;
-
-    private String pictureUrl;
 
     private boolean isAvailable;
 
@@ -39,14 +35,6 @@ public class AllEventsEventViewModel {
 
     public void setName(String name) {
         this.name = name;
-    }
-
-    public String getPlace() {
-        return this.place;
-    }
-
-    public void setPlace(String place) {
-        this.place = place;
     }
 
     public LocalDateTime getStartTime() {
@@ -79,14 +67,6 @@ public class AllEventsEventViewModel {
 
     public void setRemainingTickets(Integer remainingTickets) {
         this.remainingTickets = remainingTickets;
-    }
-
-    public String getPictureUrl() {
-        return this.pictureUrl;
-    }
-
-    public void setPictureUrl(String pictureUrl) {
-        this.pictureUrl = pictureUrl;
     }
 
     public boolean isAvailable() {

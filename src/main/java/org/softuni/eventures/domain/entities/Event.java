@@ -25,8 +25,6 @@ public class Event extends BaseEntity {
 
     private BigDecimal pricePerTicket;
 
-    private String pictureUrl;
-
     public Event() {
     }
 
@@ -95,14 +93,5 @@ public class Event extends BaseEntity {
 
     public Integer extractRemainingTickets() {
         return this.getTotalTickets() - this.getSoldTickets();
-    }
-
-    @Column(name = "image_url", nullable = true)
-    public String getPictureUrl() {
-        return this.pictureUrl;
-    }
-
-    public void setPictureUrl(String pictureUrl) {
-        this.pictureUrl = pictureUrl;
     }
 }

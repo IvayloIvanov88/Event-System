@@ -1,74 +1,37 @@
 <tr class="event-{{id}}">
     <td class="w-5 event-index">{{index}}</td>
-    <td class="w-30 event-name">
-        <img src="{{pictureUrl}}"
-             alt="I has broke..."
-             class="img-thumbnail mr-4"
-             width="50"
-             height="50"
-        />
-        {{name}}
-    </td>
+    <td class="w-30 event-name">{{name}}</td>
     <td class="w-15 event-start">{{startTime}}</td>
     <td class="w-15 event-end">{{endTime}}</td>
     <td class="w-10 event-price">{{pricePerTicket}}</td>
     <td class="w-15 event-remaining-tickets">{{remainingTickets}}</td>
     <td class="w-10 event-order-form">
-        <button id="details-button-{{id}}" type="button"
-                class="btn bg-eventures"
-                data-toggle="modal"
-                data-target="#detailsModal-{{id}}">Details
-        </button>
-
-        <!--Details Modal-->
-        <div class="modal fade" id="detailsModal-{{id}}" tabindex="-1" role="dialog"
-             aria-labelledby="detailsModalLabel-{{id}}"
+        <button id="order-button-{{id}}" type="button" class="btn bg-eventures" data-toggle="modal" data-target="#orderFormModal-{{id}}">Order</button>
+        <!--Modal-->
+        <div class="modal fade" id="orderFormModal-{{id}}" tabindex="-1" role="dialog" aria-labelledby="orderFormModalLabel-{{id}}"
              aria-hidden="true">
-            <div class="modal-dialog modal-lg" role="document">
+            <div class="modal-dialog" role="document">
                 <div class="modal-content">
                     <div class="modal-header">
-                        <h5 class="modal-title" id="detailsModalLabel-{{id}}">{{name}} - Details</h5>
+                        <h5 class="modal-title" id="orderFormModalLabel-{{id}}">Order tickets for {{name}}</h5>
                         <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                             <span aria-hidden="true">&times;</span>
                         </button>
                     </div>
-                    <div class="modal-body">
-                        <div class="event-data w-75 mx-auto d-flex justify-content-between">
-                            <div class="picture-handler">
-                                <img src="{{pictureUrl}}"
-                                     alt="I has broke..."
-                                     class="img-thumbnail"
-                                     width="275"/>
-                            </div>
-                            <div class="data-handler">
-                                <h5><span class="font-weight-bold">Place</span>: {{place}}</h5>
-                                <h5><span class="font-weight-bold">Start</span>: {{startTime}}</h5>
-                                <h5><span class="font-weight-bold">End</span>: {{endTime}}</h5>
-                                <h5><span class="font-weight-bold">Price Per Ticket</span>: {{pricePerTicket}}</h5>
-                                <h5><span class="font-weight-bold">Remaining Tickets</span>: {{remainingTickets}}</h5>
-                            </div>
-                        </div>
-                        <hr class="bg-eventures w-50 hr-2 mt-3">
-                        <div class="order-data mt-4">
-                            <h5 class="text-center">Order tickets for {{name}}</h5>
-                            <form class="form-inline mt-3 d-flex justify-content-between" action="/events/order"
-                                  method="POST">
-                                <div class="modal-body">
+                    <form class="form-inline d-flex justify-content-between" action="/events/order" method="POST">
+                        <div class="modal-body">
 
-                                    <div class="form-group">
-                                        <label class="mb-1" for="tickets-{{id}}">Tickets</label>
-                                        <input type="number" name="tickets" class="form-control ml-3 w-75"
-                                               id="tickets-{{id}}"/>
-                                        <input type="hidden" name="eventId" value="{{id}}">
-                                    </div>
-                                </div>
-                                <div class="modal-footer">
-                                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                                    <button type="submit" class="btn bg-eventures">Order</button>
-                                </div>
-                            </form>
+                            <div class="form-group">
+                                <label class="mb-1" for="tickets-{{id}}">Tickets</label>
+                                <input type="number" name="tickets" class="form-control ml-3 w-75" id="tickets-{{id}}"/>
+                                <input type="hidden" name="eventId" value="{{id}}">
+                            </div>
                         </div>
-                    </div>
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                            <button type="submit" class="btn bg-eventures">Order</button>
+                        </div>
+                    </form>
                 </div>
             </div>
         </div>

@@ -6,17 +6,29 @@ import org.springframework.beans.factory.annotation.Value;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.jms.core.JmsTemplate;
+import org.springframework.mail.javamail.JavaMailSender;
+import org.springframework.mail.javamail.JavaMailSenderImpl;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
-import org.springframework.web.servlet.LocaleResolver;
-import org.springframework.web.servlet.i18n.LocaleChangeInterceptor;
-import org.springframework.web.servlet.i18n.SessionLocaleResolver;
 
-import java.util.Locale;
 
 @Configuration
 public class ApplicationBeanConfiguration {
     @Value("${spring.activemq.broker-url}")
     private String DEFAULT_BROKER_URL;
+
+    @Value("${spring.mail.properties.port}")
+    private int MAIL_PORT;
+
+    @Value("${spring.mail.properties.host}")
+    private String MAIL_HOST;
+
+    @Value("${spring.mail.properties.username}")
+    private String MAIL_USERNAME;
+
+    @Value("${spring.mail.properties.password}")
+    private String MAIL_PASSWORD;
+
+
 
     @Bean
     public ModelMapper modelMapper() {
@@ -47,16 +59,14 @@ public class ApplicationBeanConfiguration {
     }
 
     @Bean
-    public LocaleResolver localeResolver()  {
-        SessionLocaleResolver localeResolver = new SessionLocaleResolver();
-        localeResolver.setDefaultLocale(Locale.US);
-        return localeResolver;
-    }
+    public JavaMailSender javaMailSender() {
+        JavaMailSenderImpl javaMailSender = new JavaMailSenderImpl();
 
-    @Bean
-    public LocaleChangeInterceptor localeChangeInterceptor() {
-        LocaleChangeInterceptor localeChangeInterceptor = new LocaleChangeInterceptor();
-        localeChangeInterceptor.setParamName("lang");
-        return localeChangeInterceptor;
+        javaMailSender.setHost(MAIL_HOST);
+        javaMailSender.setUsername(MAIL_USERNAME);
+        javaMailSender.setPassword(MAIL_PASSWORD);
+        javaMailSender.setPort(MAIL_PORT);
+
+        return javaMailSender;
     }
 }

@@ -6,7 +6,6 @@ import org.softuni.eventures.domain.models.binding.EventOrderBindingModel;
 import org.softuni.eventures.domain.models.service.EventServiceModel;
 import org.softuni.eventures.domain.models.view.AllEventsEventViewModel;
 import org.softuni.eventures.domain.models.view.MyEventsEventViewModel;
-import org.softuni.eventures.service.CloudinaryService;
 import org.softuni.eventures.service.EventService;
 import org.softuni.eventures.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -15,7 +14,6 @@ import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.servlet.ModelAndView;
 
-import java.io.IOException;
 import java.security.Principal;
 import java.time.LocalDateTime;
 import java.util.HashMap;
@@ -28,16 +26,13 @@ import java.util.stream.Collectors;
 public class EventController extends BaseController {
     private final EventService eventService;
 
-    private final CloudinaryService cloudinaryService;
-
     private final ModelMapper modelMapper;
 
     private final JmsTemplate jmsTemplate;
 
     @Autowired
-    public EventController(EventService eventService, UserService userService, CloudinaryService cloudinaryService, ModelMapper modelMapper, JmsTemplate jmsTemplate) {
+    public EventController(EventService eventService, UserService userService, ModelMapper modelMapper, JmsTemplate jmsTemplate) {
         this.eventService = eventService;
-        this.cloudinaryService = cloudinaryService;
         this.modelMapper = modelMapper;
         this.jmsTemplate = jmsTemplate;
     }
@@ -51,11 +46,11 @@ public class EventController extends BaseController {
     @GetMapping(value = "/api/all", produces = "application/json")
     @ResponseBody
     public Set<AllEventsEventViewModel> apiAllEvents() {
-        return this
+        Set<AllEventsEventViewModel> allEventsViewModel = this
                 .eventService
                 .getAll()
                 .stream()
-                .map(x -> {
+                .map(x ->  {
                     AllEventsEventViewModel viewModel = this.modelMapper.map(x, AllEventsEventViewModel.class);
 
                     viewModel.setRemainingTickets(x.getTotalTickets() - x.getSoldTickets());
@@ -66,17 +61,18 @@ public class EventController extends BaseController {
                     return viewModel;
                 })
                 .collect(Collectors.toUnmodifiableSet());
+
+        return allEventsViewModel;
     }
 
     @GetMapping(value = "/api/available", produces = "application/json")
     @ResponseBody
     public Set<AllEventsEventViewModel> apiAvailableEvents() {
-
-        return this
+        Set<AllEventsEventViewModel> allEventsViewModel = this
                 .eventService
                 .getAvailable()
                 .stream()
-                .map(x -> {
+                .map(x ->  {
                     AllEventsEventViewModel viewModel = this.modelMapper.map(x, AllEventsEventViewModel.class);
 
                     viewModel.setAvailable(true);
@@ -85,16 +81,18 @@ public class EventController extends BaseController {
                     return viewModel;
                 })
                 .collect(Collectors.toUnmodifiableSet());
+
+        return allEventsViewModel;
     }
 
     @GetMapping(value = "/api/unavailable", produces = "application/json")
     @ResponseBody
     public Set<AllEventsEventViewModel> apiUnavailableEvents() {
-        return this
+        Set<AllEventsEventViewModel> allEventsViewModel = this
                 .eventService
                 .getUnavailable()
                 .stream()
-                .map(x -> {
+                .map(x ->  {
                     AllEventsEventViewModel viewModel = this.modelMapper.map(x, AllEventsEventViewModel.class);
 
                     viewModel.setAvailable(false);
@@ -103,6 +101,8 @@ public class EventController extends BaseController {
                     return viewModel;
                 })
                 .collect(Collectors.toUnmodifiableSet());
+//
+        return allEventsViewModel;
     }
 
     @GetMapping("/my")
@@ -125,23 +125,12 @@ public class EventController extends BaseController {
     }
 
     @PostMapping("/create")
-    public ModelAndView createEventConfirm(@ModelAttribute EventCreateBindingModel eventCreateBindingModel) throws IOException {
-        EventServiceModel eventServiceModel = this.modelMapper
-                .map(eventCreateBindingModel, EventServiceModel.class);
-
-        String pictureUrl = this.cloudinaryService.uploadImage(eventCreateBindingModel.getEventPicture());
-
-        if (pictureUrl == null) {
-            throw new IllegalArgumentException("Event Picture upload failed.");
-        }
-
-        eventServiceModel.setPictureUrl(pictureUrl);
-
+    public ModelAndView createEventConfirm(@ModelAttribute EventCreateBindingModel eventCreateBindingModel) {
         boolean result = this.eventService
-                .createEvent(eventServiceModel);
+                .createEvent(this.modelMapper.map(eventCreateBindingModel, EventServiceModel.class));
 
-        if (!result) {
-            throw new IllegalArgumentException("Event creation failed.");
+        if(!result) {
+            throw new IllegalArgumentException("asd");
         }
 
         return this.redirect("all");
@@ -149,6 +138,9 @@ public class EventController extends BaseController {
 
     @PostMapping("/order")
     public ModelAndView order(@ModelAttribute EventOrderBindingModel eventOrderBindingModel, Principal principal, ModelAndView modelAndView) {
+//        this.eventService
+//                .orderEvent(eventOrderBindingModel.getEventId(), principal.getName(), eventOrderBindingModel.getTickets());
+
         Map<String, Object> jmsArguments = new HashMap<>() {{
             put("tickets", eventOrderBindingModel.getTickets());
             put("eventId", eventOrderBindingModel.getEventId());

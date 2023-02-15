@@ -1,3 +1,64 @@
+POST http://localhost:8000/register
+Content-Length: 0
+Connection: Keep-Alive
+User-Agent: Apache-HttpClient/4.5.13 (Java/17.0.5)
+Cookie: JSESSIONID=75EDB3A0D8352E9D7A906662688BDB12; atlassian.xsrf.token=bootstrapping_ceff0e175692a5890fd06dcb4ad4dfc2ca66adf5_lout
+Accept-Encoding: br,deflate,gzip,x-gzip
+
+<> 2023-02-13T141623.500.json
+
+###
+
+POST http://localhost:8000/login-error
+Connection: Keep-Alive
+User-Agent: Apache-HttpClient/4.5.13 (Java/17.0.5)
+Cookie: JSESSIONID=75EDB3A0D8352E9D7A906662688BDB12; atlassian.xsrf.token=bootstrapping_ceff0e175692a5890fd06dcb4ad4dfc2ca66adf5_lout
+Accept-Encoding: br,deflate,gzip,x-gzip
+
+<> 2023-02-13T132344.200.html
+
+###
+
+# @no-redirect
+POST http://localhost:8000/login-error
+Content-Length: 0
+Connection: Keep-Alive
+User-Agent: Apache-HttpClient/4.5.13 (Java/17.0.5)
+Cookie: JSESSIONID=75EDB3A0D8352E9D7A906662688BDB12; atlassian.xsrf.token=bootstrapping_ceff0e175692a5890fd06dcb4ad4dfc2ca66adf5_lout
+Accept-Encoding: br,deflate,gzip,x-gzip
+
+###
+
+POST http://localhost:8000/login-error
+Connection: Keep-Alive
+User-Agent: Apache-HttpClient/4.5.13 (Java/17.0.5)
+Cookie: JSESSIONID=75EDB3A0D8352E9D7A906662688BDB12; atlassian.xsrf.token=bootstrapping_ceff0e175692a5890fd06dcb4ad4dfc2ca66adf5_lout
+Accept-Encoding: br,deflate,gzip,x-gzip
+
+<> 2023-02-13T132303.200.html
+
+###
+
+POST http://localhost:8000/login-error
+Connection: Keep-Alive
+User-Agent: Apache-HttpClient/4.5.13 (Java/17.0.5)
+Cookie: JSESSIONID=75EDB3A0D8352E9D7A906662688BDB12; atlassian.xsrf.token=bootstrapping_ceff0e175692a5890fd06dcb4ad4dfc2ca66adf5_lout
+Accept-Encoding: br,deflate,gzip,x-gzip
+
+<> 2023-02-13T132228.200.html
+
+###
+
+GET http://localhost:8000/events/all
+Connection: Keep-Alive
+User-Agent: Apache-HttpClient/4.5.13 (Java/17.0.5)
+Cookie: JSESSIONID=75EDB3A0D8352E9D7A906662688BDB12; atlassian.xsrf.token=bootstrapping_ceff0e175692a5890fd06dcb4ad4dfc2ca66adf5_lout
+Accept-Encoding: br,deflate,gzip,x-gzip
+
+<> 2023-02-13T132225.200.html
+
+###
+
 GET http://localhost:8181/events/api/all
 Connection: Keep-Alive
 User-Agent: Apache-HttpClient/4.5.13 (Java/17.0.5)

@@ -20,8 +20,6 @@ public class EventServiceModel {
 
     private BigDecimal pricePerTicket;
 
-    private String pictureUrl;
-
     public EventServiceModel() {
     }
 
@@ -87,13 +85,5 @@ public class EventServiceModel {
 
     public void setPricePerTicket(BigDecimal pricePerTicket) {
         this.pricePerTicket = pricePerTicket;
-    }
-
-    public String getPictureUrl() {
-        return pictureUrl;
-    }
-
-    public void setPictureUrl(String pictureUrl) {
-        this.pictureUrl = pictureUrl;
     }
 }

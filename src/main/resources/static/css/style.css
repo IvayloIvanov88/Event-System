@@ -2,6 +2,14 @@
     background-color: #AFEEEE;
 }
 
+.bg-btn-eventures{
+    background-color: #AFEEEE;
+    font-weight: bold;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    margin: 2px;
+}
+
 .w-5 {
     width: 5%;
 }

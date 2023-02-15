@@ -1,7 +1,6 @@
 package org.softuni.eventures.domain.models.binding;
 
 import org.springframework.format.annotation.DateTimeFormat;
-import org.springframework.web.multipart.MultipartFile;
 
 import java.math.BigDecimal;
 import java.time.LocalDateTime;
@@ -20,8 +19,6 @@ public class EventCreateBindingModel {
     private Integer totalTickets;
 
     private BigDecimal pricePerTicket;
-
-    private MultipartFile eventPicture;
 
     public EventCreateBindingModel() {
     }
@@ -72,13 +69,5 @@ public class EventCreateBindingModel {
 
     public void setPricePerTicket(BigDecimal pricePerTicket) {
         this.pricePerTicket = pricePerTicket;
-    }
-
-    public MultipartFile getEventPicture() {
-        return eventPicture;
-    }
-
-    public void setEventPicture(MultipartFile eventPicture) {
-        this.eventPicture = eventPicture;
     }
 }

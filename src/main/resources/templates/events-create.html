@@ -12,7 +12,7 @@
     <main class="mt-3">
         <h1 class="text-center font-weight-bold">Create Event</h1>
         <hr class="hr-2 bg-eventures">
-        <form class="w-50 mx-auto" enctype="multipart/form-data" th:action="@{/events/create}" th:method="POST">
+        <form class="w-50 mx-auto" th:action="@{/events/create}" th:method="POST">
             <div class="name-and-place-holder d-flex justify-content-between">
                 <div class="form-group w-40">
                     <label for="name">Name</label>
@@ -45,22 +45,12 @@
                 </div>
                 <div class="form-group w-40">
                     <label for="pricePerTicket">Price per ticket</label>
-                    <input type="number" name="pricePerTicket" class="form-control" id="pricePerTicket"
-                           placeholder="Price per ticket..."/>
-                </div>
-            </div>
-            <hr class="hr-2 bg-eventures">
-            <div class="form-group">
-                <div class="d-flex justify-content-center">
-                    <label for="eventPicture">Event Picture</label>
-                </div>
-                <div class="w-30 mx-auto">
-                    <input type="file" class="form-control-file" id="eventPicture" name="eventPicture">
+                    <input type="number" name="pricePerTicket" class="form-control" id="pricePerTicket" placeholder="Price per ticket..."/>
                 </div>
             </div>
             <hr class="hr-2 bg-eventures">
             <div class="button-holder d-flex justify-content-around">
-                <button type="submit" class="btn bg-eventures">Create Event</button>
+                <button type="submit" class="btn bg-btn-eventures">Create Event</button>
             </div>
         </form>
     </main>

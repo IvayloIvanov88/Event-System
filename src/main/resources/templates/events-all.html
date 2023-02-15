@@ -71,26 +71,18 @@
 
                     for (const object of data) {
                         let renderedEvent = template
-                            .replace('{{index}}', index++);
+                            .replace('{{index}}', index++)
+                            .replace('{{startTime}}', object['startTime'])
+                            .replace('{{endTime}}', object['endTime'])
+                            .replace('{{pricePerTicket}}', object['pricePerTicket'])
+                            .replace('{{remainingTickets}}', object['remainingTickets']);
 
-                        let repeatableElements = ['id', 'name', 'place', 'startTime', 'endTime', 'pricePerTicket', 'remainingTickets', 'pictureUrl'];
+                        while(renderedEvent.indexOf('{{id}}') >= 0) {
+                            renderedEvent = renderedEvent.replace('{{id}}', object['id']);
+                        }
 
-                        for (const element of repeatableElements) {
-                            while(renderedEvent.indexOf('{{'
-                                + element
-                                + '}}') >= 0) {
-
-                                let valueToReplace = object[element];
-
-                                if(element.toLowerCase().indexOf('time') > 0) {
-                                    valueToReplace = valueToReplace.replace('T', ' | ');
-                                }
-
-                                renderedEvent =
-                                    renderedEvent.replace('{{'
-                                    + element
-                                    + '}}', valueToReplace);
-                            }
+                        while(renderedEvent.indexOf('{{name}}') >= 0) {
+                            renderedEvent = renderedEvent.replace('{{name}}', object['name']);
                         }
 
                         $('.table-body')
